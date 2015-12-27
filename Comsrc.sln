@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 14 for Windows Desktop
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comsrc", "Comsrc\Comsrc.csproj", "{D44301F7-D47F-4724-8AC5-1AA154A9B0C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinDialogTest", "WinDialogTest\WinDialogTest.csproj", "{202A1EFC-2C35-41C5-88A3-270724379E8F}"
@@ -8,6 +10,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tcpSend", "tcpSend\tcpSend.csproj", "{4F864E6C-4A24-4A41-8C19-6E2DAAAFB290}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tcprecv", "tcprecv\tcprecv.csproj", "{2BBFA66B-C0B9-4B78-9D2F-5A6374C61777}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{161DDCDF-BE56-4CA6-8FC9-79A9250687D1}"
+	ProjectSection(SolutionItems) = preProject
+		概要.txt = 概要.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
