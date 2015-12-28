@@ -88,7 +88,7 @@ namespace Comsrc
 		///				IPアドレスは限定スコープアドレス 239.0.0.0 ～ 239.255.255.255 
 		///				ポート番号
 		///		History :			
-		///			2009.09.03 SKYware
+		///			2009.09.03 Mohayuni
 		/// </summary>
 		/// <param name="iPName"></param>
 		/// <param name="portNum"></param>
@@ -367,7 +367,7 @@ namespace Comsrc
 		///			アクセプト時はソケットハンドルクラスを戻す
 		///		又、接続先のエンドポイントの情報も戻す
 		///		History :			
-		///			2009.09.03 SKYware
+		///			2009.09.03 Mohayuni
 		/// </summary>
 		/// <param name="_remoteEndPoint"></param>
 		/// <returns></returns>
@@ -399,7 +399,7 @@ namespace Comsrc
 		///			最初のコールバック時に呼び出される
 		///			Objectで渡されるイベントをセットする
 		///		History :			
-		///			2009.09.03 SKYware
+		///			2009.09.03 Mohayuni
 		///		
 		/// </summary>
 		/// <param name="_event"></param>
@@ -417,7 +417,7 @@ namespace Comsrc
 		///		Notes   :
 		///			タイマー付で待つ単位はmsとする
 		///		History :			
-		///			2009.09.03 SKYware
+		///			2009.09.03 Mohayuni
 		///		
 		/// </summary>
 		/// <param name="_recvBuf"></param>
@@ -526,7 +526,7 @@ namespace Comsrc
 		///			タイマー付で待つ単位はmsとする0でBlockとなる
 		///			(500ms以下は500msとなる、Socketクラスの仕様制限）
 		///		History :			
-		///			2009.09.03 SKYware
+		///			2009.09.03 Mohayuni
 		/// 
 		/// </summary>
 		/// <param name="_sendBuf"></param>

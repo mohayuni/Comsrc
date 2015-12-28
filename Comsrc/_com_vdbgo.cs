@@ -93,7 +93,7 @@ namespace Comsrc
 		///		Notes   :
 		///			ui_DEBUGModeは0xffffffffとなる
 		///		History :
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// </summary>
 		/// <param name="_debugModePrm"></param>
 		static	private void vdbgo(
@@ -116,7 +116,7 @@ namespace Comsrc
 		///			ui_DEBUGModeは指0xffffffffとなる
 		///			本メソッドはスレッドセーフではない
 		///		History :
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// </summary>
 		static public void vDbgoInit()
 		{
@@ -130,7 +130,7 @@ namespace Comsrc
 		///			ui_DEBUGModeは指0xffffffffとなる
 		///			本メソッドはスレッドセーフではない
 		///		History :
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// </summary>
 		/// <param name="_debugMode"></param>
 		static public void vDbgoInit(
@@ -147,7 +147,7 @@ namespace Comsrc
 		///			debugModeできょかされたレベル種別のみ出力する。
 		///			CR->CRLF変換、行末へのCRLFの付加は行わない。
 		///		History :
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// 
 		/// </summary>
 		/// <param name="_iMode"></param>
@@ -196,7 +196,7 @@ namespace Comsrc
 		///			debugInfoについては登録しない
 		///			（_com_logクラスのデバックライトで使用する為）
 		///		History :
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// </summary>
 		/// <param name="_vWriteLog"></param>
 		/// <param name="_errLevel"></param>

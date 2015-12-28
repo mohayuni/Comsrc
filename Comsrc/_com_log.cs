@@ -71,7 +71,7 @@ namespace Comsrc
 		///		checkAndDeleteLog
 		///		古い日付、不正な日付のログファイル削除
 		///		History :
-		///			2009.08.14 SKYware
+		///			2009.08.14 Mohayuni
 		/// </summary>
 		/// <param name="CurLogName"></param>
 		private void checkAndDeleteLog(
@@ -120,7 +120,7 @@ namespace Comsrc
 		///		getLastLogInfo
 		///		最終ログ情報の取得
 		///		History :
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// </summary>
 		private void getLastLogInfo()
 		{
@@ -200,7 +200,7 @@ namespace Comsrc
 		///		LogConst
 		///		初期化処理実装部
 		///		History :
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// </summary>
 		/// <param name="_baseName"></param>
 		/// <param name="_extName"></param>
@@ -267,7 +267,7 @@ namespace Comsrc
 		///		Notes   :
 		///			CR->CRLF変換、行末へのCRLFの付加は行わない。
 		///		History :			
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// </summary>
 		/// <param name="_logStr"></param>
 		/// <param name="_AddDate"></param>
@@ -399,7 +399,7 @@ namespace Comsrc
 		///		Notes   :
 		///			ログファイルをクローズする。
 		///		History :			
-		///			2009.09.03 SKYware
+		///			2009.09.03 Mohayuni
 		/// 
 		/// </summary>
 		public void close()
@@ -415,7 +415,7 @@ namespace Comsrc
 		/// <summary>
 		///		_com_log	ログファイル名指定のみのコンストラクタ
 		///		History :
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// </summary>
 		/// <param name="_baseName"></param>
 		public _com_log(
@@ -435,7 +435,7 @@ namespace Comsrc
 		/// <summary>
 		///		_com_log	フルオプション指定有のコンストラクタ
 		///		History :
-		///			2009.08.12 SKYware
+		///			2009.08.12 Mohayuni
 		/// </summary>
 		/// <param name="_baseName"></param>
 		public _com_log(
