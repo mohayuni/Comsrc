@@ -3,12 +3,12 @@
 //----------------------------------------------------------------------
 // <Module Name> Csv読込クラス
 //----------------------------------------------------------------------
-// <File Name>   ReadCsv.cs
+// <File Name>	ReadCsv.cs
 //----------------------------------------------------------------------
 // <Description>
-//   特定のCSVファイルを読み込み内部クラスに保持する。
+//	特定のCSVファイルを読み込み内部クラスに保持する。
 // <History>
-//   2015.12.27 typed
+//	2015.12.27 typed
 //----------------------------------------------------------------------
 // <Notes>
 //　 
@@ -28,7 +28,6 @@ using System.Linq;
 using System.Text;
 using System.IO;			//	Stream
 using System.Diagnostics;	//	CallStack
-
 using Comsrc;
 
 namespace ReadCsv
@@ -36,31 +35,37 @@ namespace ReadCsv
 
 	class _ReadCsv 
 	{
-        //-----定数定義--------------------------------------------------------------------
-        //      出力フラグ
+			//-----定数定義--------------------------------------------------------------------
+			//		出力フラグ
 
-        //-----プロパティの定義--------------------------------------------------------------------
-        //		static	private string ipAddress = "0.0.0.0";		//	リモートデバック出力
-        //		private Trace cTrace;
-        //		static private Stream p_StreamErrLog = null;
+			//-----プロパティの定義--------------------------------------------------------------------
+			//		static	private string ipAddress = "0.0.0.0";		//	リモートデバック出力
+			//		private Trace cTrace;
+			//		static private Stream p_StreamErrLog = null;
 
-        //--------------------------------------------------------------------------------
-        /// <summary>
-        ///		readcsv	コンストラクタ
-        ///		Notes   :
-        ///         指定されたファイル名のCSVを読み込み構造体に保存する。
-        ///		History :			
-        ///			2015.12.27 Mohayuni
-        /// </summary>
-        /// <param name="strFileName"></param>
-        public _ReadCsv(
-            string strFileName  //	対象ファイル名
-                )
-        {
-            return;
-        }
+			class _cCarriageData
+			{
+				public string strClass; //	種別コード	(EC/DC/PC...)
+				public int iSeriese;	 //	系列番号	(
+				public string strForm;	//	型式
+			}
+			//--------------------------------------------------------------------------------
+			/// <summary>
+			///		readcsv	コンストラクタ
+			///		Notes	:
+			///			指定されたファイル名のCSVを読み込み構造体に保存する。
+			///		History :			
+			///			2015.12.27 Mohayuni
+			/// </summary>
+			/// <param name="strFileName"></param>
+			public _ReadCsv(
+				string strFileName	//	対象ファイル名
+			)
+			{
+				return;
+			}
 
-    }	//	end class	_ReadCsv
+	 }	//	end class	_ReadCsv
 }	//	end namespace	ReadCsv
 
 

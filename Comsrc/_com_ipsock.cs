@@ -13,7 +13,7 @@
 // <Notes>
 //	 以下のオプションがある
 //	　・TCP/UDP
-//    ・サーバ動作/クライアント動作
+//	・サーバ動作/クライアント動作
 //----------------------------------------------------------------------/
 
 //----------------------------------------------------------------------
@@ -151,7 +151,7 @@ namespace Comsrc
 				}
 			}
 			
-		    catch(SocketException e) 
+			catch(SocketException e) 
 			{
 				_com_vdbgo.vDbgoVerbose(_com_vdbgo.ComsrcInf, 
 					"SocketException caught!!! [_com_ipsock] Source : {0} Message : {1} ErrCode : {2}\r\n",
@@ -214,7 +214,7 @@ namespace Comsrc
 		return;
 	}
 
-    SockAddr.sin_family = AF_INET;
+	SockAddr.sin_family = AF_INET;
 	SockAddr.sin_port = htons((unsigned short)iPortNum);
 
 	//	IPアドレスを取得する
@@ -849,7 +849,7 @@ CIpSock::CIpSock(
 		return;
 	}
 
-    SockAddr.sin_family = AF_INET;
+	SockAddr.sin_family = AF_INET;
 	SockAddr.sin_port = htons((unsigned short)iPortNum);
 
 	//	IPアドレスを取得する
