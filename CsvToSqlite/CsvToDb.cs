@@ -31,7 +31,7 @@ namespace CsvToSqlite
 	class CsvToDb
 	{
 		static private uint debugFlag = 0xffffffff;
-		static private string strCsvFileName;
+		static private string strCsvFileName = null;
 		static private _ReadCsv cReadCsv;
 
 		//----------------------------------------------------------------------
@@ -73,6 +73,12 @@ namespace CsvToSqlite
 				{
 				}
 			}
+			//	引数の有効性をチェック
+			if (strCsvFileName == null)
+			{
+				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "対象ファイルが指定されていません\r\n");
+				return (false);
+			}	
 			return (true);
 		}
 
@@ -109,6 +115,11 @@ namespace CsvToSqlite
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "変換ファイル {0}\r\n", strCsvFileName);
 
 			cReadCsv = new _ReadCsv(strCsvFileName);
+
+			for (;;)
+			{
+				if (cReadCsv._ReadOneLineData() == false) break;
+            }
 		}
 	}
 }
