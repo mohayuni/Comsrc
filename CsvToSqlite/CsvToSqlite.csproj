@@ -49,6 +49,7 @@
       <Link>_com_vdbgo.cs</Link>
     </Compile>
     <Compile Include="CsvToDb.cs" />
+    <Compile Include="CtlDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadCsv.cs" />
   </ItemGroup>

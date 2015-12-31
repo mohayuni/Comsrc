@@ -118,7 +118,7 @@ namespace CsvToSqlite
 
 			for (;;)
 			{
-				if (cReadCsv._ReadOneLineData() == false) break;
+				if (cReadCsv._ReadOneLineData("EC", "101系") == false) break;
             }
 		}
 	}
