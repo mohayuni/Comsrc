@@ -25,6 +25,7 @@ using System.Threading.Tasks;
 
 using Comsrc;
 using ReadCsv;
+using CtlDb;
 
 namespace CsvToSqlite
 {
@@ -33,24 +34,25 @@ namespace CsvToSqlite
 		//-----メンバー変数定義--------------------------------------------------------------------
 		static private uint m_debugFlag = 0xffffffff;
 		static private string m_strCsvFileName = null;
+		static private string m_strDbFileName = null;
 		static private _ReadCsv m_cReadCsv;
-		static private string m_strClassName = null;  //	種別コード名称	(EC/DC/PC...)
-		static private string m_strSeriese = null;    //	系列名称		(101系/103系...)
+		static private string m_strClassName = null;	//	種別コード名称	(EC/DC/PC...)
+		static private string m_strSeriese = null;		//	系列名称		(101系/103系...)
+		static private _CtlDb m_cMyDb;                  //	使用するデータベースクラス
 
-		//----------------------------------------------------------------------
-		// メソッド: sbChkArg
-		//----------------------------------------------------------------------
-		// Summary :
-		//	起動引数の取得
-		// OutLine :
-		//	起動引数を取得
-		// Return	:
-		//	TRUE	起動引数は取得できた
-		//	FALSE	最低一つの不正な引数があった
-		// Notes	:
-		// History :
-		//	2015.12.27	typed
-		//----------------------------------------------------------------------
+		//--------------------------------------------------------------------------------
+		/// <summary>
+		///		sbChkArg	引数の取得
+		///		Notes	:
+		///			引数をデコードし、内部メンバーに設定する。
+		/// 		"/D:Debug Out Mode (Option)"
+		///			"/F:CSVファイル名[必須]"
+		///			"/T:種別コード(EC/DC/PC...)[必須]"
+		///			"/S:系列名(101系/103系...)[必須]"
+		///		History :			
+		///			2015.12.27 Mohayuni
+		/// </summary>
+		/// <param name="string[] args">	引数</param>
 		static private bool sbCheckArg(string[] args)
 		{
 			int _ii;
@@ -67,6 +69,11 @@ namespace CsvToSqlite
 				{
 					_wkStr = args[_ii].Remove(0, args[_ii].LastIndexOf(':') + 1);
 					m_strCsvFileName = _wkStr;
+				}
+				else if (args[_ii].StartsWith("/B:") == true)
+				{
+					_wkStr = args[_ii].Remove(0, args[_ii].LastIndexOf(':') + 1);
+					m_strDbFileName = _wkStr;
 				}
 				else if (args[_ii].StartsWith("/T:") == true)
 				{
@@ -108,27 +115,21 @@ namespace CsvToSqlite
 				Console.WriteLine("パラメータ");
 				Console.WriteLine("/D:Debug Out Mode (Option)");
 				Console.WriteLine("/F:CSVファイル名[必須]");
+				Console.WriteLine("/B:DBファイル名[必須]");
 				Console.WriteLine("/T:種別コード(EC/DC/PC...)[必須]");
 				Console.WriteLine("/S:系列名(101系/103系...)[必須]");
 			}
 			return (bRet);
 		}
-
-		//----------------------------------------------------------------------
-		// メソッド: Main
-		//----------------------------------------------------------------------
-		// Summary :
-		//	指定CSVファイルデータをSqliteデータベースに保存する。
-		// OutLine :
-		//	指定CSVファイルデータを読出し、構造体に格納
-		//	格納したデータをSqliteデータベースに格納する。
-		// Return	:
-		//	TRUE	DBへの保存成功
-		//	FALSE	最低一つの不正な引数があった
-		// Notes	:
-		// History :
-		//	2009.08.12	typed
-		//----------------------------------------------------------------------
+		///--------------------------------------------------------------------------------
+		/// <summary>
+		///		Main	指定CSVファイルデータをSqliteデータベースに保存する
+		///		Notes	:
+		///			指定CSVファイルデータを読出し、Sqliteデータベースに格納する。
+		///		History :			
+		///			2015.12.27 Mohayuni
+		/// </summary>
+		/// <param name="string[] args">	引数</param>
 		static void Main(string[] args)
 		{
 			if (sbCheckArg(args) == false) return;
@@ -146,7 +147,9 @@ namespace CsvToSqlite
 
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "変換ファイル {0}\r\n", m_strCsvFileName);
 
-			m_cReadCsv = new _ReadCsv(m_strCsvFileName, m_strClassName,m_strSeriese);
+			m_cMyDb = new _CtlDb(m_strDbFileName);
+
+			m_cReadCsv = new _ReadCsv(m_strCsvFileName, m_strClassName,m_strSeriese, m_cMyDb);
 
 			for (;;)
 			{

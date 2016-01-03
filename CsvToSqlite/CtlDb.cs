@@ -28,7 +28,9 @@ using System.Linq;
 using System.Text;
 using System.IO;			//	Stream
 using System.Diagnostics;	//	CallStack
+
 using Comsrc;
+using System.Data.SQLite;	//	Sqlite
 
 namespace CtlDb
 {
@@ -87,27 +89,46 @@ namespace CtlDb
 
 		}
 		//-----メンバー変数定義--------------------------------------------------------------------
+		private static SQLiteConnection cMyDbConnect;		//	DBのコネクションハンドル
 
 		//--------------------------------------------------------------------------------
 		/// <summary>
 		///		_CtlDb	コンストラクタ
 		///		Notes	:
-		///			既定のDBをオープンする。
+		///			既定のDBをオープン、作成する。
 		///		History :			
-		///			2015.12.30 Mohayuni
+		///			20156.01.03 Mohayuni
 		/// </summary>
-		public _CtlDb(
-		)
+		/// <param name="string">	対象DBファイル名</param>
+		public _CtlDb(string strDbName)
 		{
-            try
-			{
-			}
-			catch (InvalidCastException except)
-			{
-			}	
+			//		()	//	コンストラクタ
+			//
+            cMyDbConnect = new SQLiteConnection();
+			cMyDbConnect.ConnectionString = "Data Source = " + strDbName + ";Version=3;";
+			SQLiteCommand cMyDbCommand = cMyDbConnect.CreateCommand();
 
-			return;
-		}
+			try
+			{
+				cMyDbConnect.Open();    //	DBをオープンする、存在しなければ作成される
+										//	テーブルの存在を確認する。
+				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "DBのテーブルを確認する。\r\n");
+				cMyDbCommand.CommandText = "SELECT * FROM sqlite_master";
+				SQLiteDataReader cMyDbReader = cMyDbCommand.ExecuteReader();
+//				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "SQLiteDataReader.FieldCount = {0}\r\n", cMyDbReader.FieldCount);
+//				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "SQLiteDataReader.HasRows = {0}\r\n", cMyDbReader.HasRows);
+				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "start SQLiteDataReader tbl_name \r\n");
+				while (cMyDbReader.Read())
+				{
+					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "SQLiteDataReader[tbl_name] = {0}\r\n", cMyDbReader["tbl_name"].ToString());
+				}
+				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "end SQLiteDataReader tbl_name \r\n");
+			}
+			catch (Exception e)
+			{
+				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "_CtlDb コンストラクタ エラー = {0}\r\n", e.ToString());
+			}
+        }
 #if NOP
 
 		//--------------------------------------------------------------------------------
@@ -126,6 +147,22 @@ namespace CtlDb
 			return;
 		}
 #endif
+		//--------------------------------------------------------------------------------
+		/// <summary>
+		///		_CtlDb	デストラクタ
+		///		Notes	:
+		///			既定のDBのコネクションをクローズする。
+		///		History :			
+		///			20156.01.03 Mohayuni
+		/// </summary>
+		/// 
+		public bool _Close()
+		{
+			cMyDbConnect.Close();
+            return (true);
+		}
+
+
 		//--------------------------------------------------------------------------------
 		/// <summary>
 		///		_WriteCarriageInfo	車輛固有情報

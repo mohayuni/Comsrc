@@ -83,9 +83,9 @@ namespace ReadCsv
 		//-----メンバー変数定義--------------------------------------------------------------------
 		private string m_strFull;   //	指定CSVファイル全体を読み込んだ文字列
 		private System.IO.StringReader m_streaderFull;  //	m_strFullにアクセスする為のStringReader構造体
-		private _CtlDb cCtlDb;
+		private _CtlDb m_cCtlDb;
 		private string m_strClassName;	//	種別コード名称	(EC/DC/PC...)
-		private string m_strSeriese;	//	系列名称		(101系/103系...)
+		private string m_strSeriese;    //	系列名称		(101系/103系...)
 
 		//--------------------------------------------------------------------------------
 		/// <summary>
@@ -96,14 +96,16 @@ namespace ReadCsv
 		///		History :			
 		///			2015.12.27 Mohayuni
 		/// </summary>
-		/// <param name="strFileName"></param>
-		/// <param name="strClassName"></param>
-		/// <param name="strSeriese"></param>
+		/// <param name="strFileName">	対象となるCSVファイル名</param>
+		/// <param name="strClassName">	種別コード名称	(EC/DC/PC...)</param>
+		/// <param name="strSeriese">	系列名称		(101系/103系...)</param>
+		/// <param name="cDb">			書込み先データベースクラス</param>
 		public _ReadCsv(
 			string strFileName,  //	対象ファイル名
             string strClassName,
-			string strSeriese
-		)
+			string strSeriese,
+            _CtlDb	cDb
+        )
 		{
 			try
 			{
@@ -112,7 +114,7 @@ namespace ReadCsv
 					m_strFull = cCsvReader.ReadToEnd();
 					m_streaderFull = new StringReader(m_strFull);
                 }
-				cCtlDb = new _CtlDb();
+				m_cCtlDb = cDb;
 				m_strClassName = strClassName;
 				m_strSeriese = strSeriese;
             }
@@ -219,7 +221,7 @@ namespace ReadCsv
 					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "Invalid rireki Data(車番){0} [{1}]\r\n", straData[(int)enCalumIndex.enShaban], straData);
 					return (true);      //	無効行としてLogに残し、処理は継続する。
 				}
-				if (cCtlDb._WriteCarriageInfo(cCarData) == false)
+				if (m_cCtlDb._WriteCarriageInfo(cCarData) == false)
 				{
 					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "DBへの書込みに失敗!!\r\n");
 					return (false);      //	致命的なエラーなので処理を中断させる
@@ -262,7 +264,7 @@ namespace ReadCsv
 						return (true);      //	無効行としてLogに残し、処理は継続する。
 					}
 					//	履歴データを書き込む
-					if (cCtlDb._WriteHistoryInfo(cHistoryData) == false)
+					if (m_cCtlDb._WriteHistoryInfo(cHistoryData) == false)
 					{
 						_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "DBへの書込みに失敗!!\r\n");
 						return (false);      //	致命的なエラーなので処理を中断させる
@@ -282,7 +284,7 @@ namespace ReadCsv
 					cHistoryData.strForm = null;
 					cHistoryData.iSerial = 0;
 					//	履歴データを書き込む
-					if (cCtlDb._WriteHistoryInfo(cHistoryData) == false)
+					if (m_cCtlDb._WriteHistoryInfo(cHistoryData) == false)
 					{
 						_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "DBへの書込みに失敗!!\r\n");
 						return (false);      //	致命的なエラーなので処理を中断させる
@@ -306,7 +308,7 @@ namespace ReadCsv
 					cHistoryData.strForm = null;
 					cHistoryData.iSerial = 0;
 					//	履歴データを書き込む
-					if (cCtlDb._WriteHistoryInfo(cHistoryData) == false)
+					if (m_cCtlDb._WriteHistoryInfo(cHistoryData) == false)
 					{
 						_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "DBへの書込みに失敗!!\r\n");
 						return (false);      //	致命的なエラーなので処理を中断させる
@@ -340,7 +342,7 @@ namespace ReadCsv
 						return (true);      //	無効行としてLogに残し、処理は継続する。
 					}
 					//	履歴データを書き込む
-					if (cCtlDb._WriteHistoryInfo(cHistoryData) == false)
+					if (m_cCtlDb._WriteHistoryInfo(cHistoryData) == false)
 					{
 						_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "DBへの書込みに失敗!!\r\n");
 						return (false);      //	致命的なエラーなので処理を中断させる
@@ -360,7 +362,7 @@ namespace ReadCsv
 					cHistoryData.strForm = null;
 					cHistoryData.iSerial = 0;
 					//	履歴データを書き込む
-					if (cCtlDb._WriteHistoryInfo(cHistoryData) == false)
+					if (m_cCtlDb._WriteHistoryInfo(cHistoryData) == false)
 					{
 						_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "DBへの書込みに失敗!!\r\n");
 						return (false);      //	致命的なエラーなので処理を中断させる
