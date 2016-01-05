@@ -52,10 +52,10 @@ namespace CtlDb
 		/// 車輛固有情報クラス
 		public class _cCarriageData
 		{
-			public string strClass=null;//	種別コード	(EC/DC/PC...)
+			public string strClass=null;	//	種別コード	(EC/DC/PC...)
 			public string strSeriese = null;//	系列名	(101系/103系...)
-			public string strForm=null; //	型式		(モハ101/クハ101...)
-			public int iSerial=0;		//	車号		(1/1001...)
+			public string strForm=null;		//	型式		(モハ101/クハ101...)
+			public string strSerial=null;	//	車号		(1/1001...)
 		}
 		/// <summary>
 		/// 履歴情報クラス
@@ -72,7 +72,7 @@ namespace CtlDb
 		//	public string strClass=null;	//	改造後種別コード(EC/DC/PC...)
 		//	public string strSeriese=0;		//	改造後系列番号	(101/103...)
 			public string strForm=null;     //	改造後/前型式	(モハ101/クハ101...)
-			public int iSerial=0;			//	改造後/前車号	(1/1001...)
+			public string strSerial = null;	//	改造後/前車号	(1/1001...)
 			
 		}
 
@@ -89,7 +89,8 @@ namespace CtlDb
 
 		}
 		//-----メンバー変数定義--------------------------------------------------------------------
-		private static SQLiteConnection cMyDbConnect;		//	DBのコネクションハンドル
+		private static SQLiteConnection cMyDbConnect;       //	DBのコネクションハンドル
+		private SQLiteTransaction cMyTransaction;			//	Transactionオブジェクト
 
 		//--------------------------------------------------------------------------------
 		/// <summary>
@@ -116,13 +117,27 @@ namespace CtlDb
 				cMyDbCommand.CommandText = "SELECT * FROM sqlite_master";
 				SQLiteDataReader cMyDbReader = cMyDbCommand.ExecuteReader();
 //				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "SQLiteDataReader.FieldCount = {0}\r\n", cMyDbReader.FieldCount);
-//				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "SQLiteDataReader.HasRows = {0}\r\n", cMyDbReader.HasRows);
-				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "start SQLiteDataReader tbl_name \r\n");
-				while (cMyDbReader.Read())
-				{
-					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "SQLiteDataReader[tbl_name] = {0}\r\n", cMyDbReader["tbl_name"].ToString());
+				if (cMyDbReader.HasRows == false)
+				{   //	Rowデータが無い即ちテーブルも無いので、テーブルを作成する。
+					cMyDbReader.Close();
+                    cMyDbCommand.CommandText = "create table CarriageTable(id INTEGER PRIMARY KEY AUTOINCREMENT, Classification,Series,Form,Serial,Summary)";
+					int iRet = cMyDbCommand.ExecuteNonQuery();
+//					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "MyDbCommand.ExecuteNonQuery ~ {0}\r\n",iRet);
+					cMyDbCommand.CommandText = "CREATE TABLE HistoryTable(CarriageNumber,Code,Year,Month,Day,Place,Factory,Summary,Form,Serial)";
+					iRet = cMyDbCommand.ExecuteNonQuery();
+//					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "MyDbCommand.ExecuteNonQuery ~ {0}\r\n", iRet);
 				}
-				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "end SQLiteDataReader tbl_name \r\n");
+				else
+				{
+					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "SQLiteDataReader.HasRows = {0}\r\n", cMyDbReader.HasRows);
+					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "start SQLiteDataReader tbl_name \r\n");
+					while (cMyDbReader.Read())
+					{
+						_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "SQLiteDataReader[tbl_name] = {0}\r\n", cMyDbReader["tbl_name"].ToString());
+					}
+					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "end SQLiteDataReader tbl_name \r\n");
+					cMyDbReader.Close();
+				}
 			}
 			catch (Exception e)
 			{
@@ -181,7 +196,16 @@ namespace CtlDb
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　strClass = {0}\r\n", cCarData.strClass);
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　strSeriese = {0}\r\n", cCarData.strSeriese);
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　strForm = {0}\r\n", cCarData.strForm);
-			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　iSerial = {0}\r\n", cCarData.iSerial);
+			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　iSerial = {0}\r\n", cCarData.strSerial);
+
+			SQLiteCommand cMyDbCommand = cMyDbConnect.CreateCommand();
+			string strCommand = String.Format("INSERT INTO CarriageTable(Classification,Series,Form,Serial,Summary) values('{0}','{1}','{2}',{3},'')",
+							cCarData.strClass, cCarData.strSeriese, cCarData.strForm, cCarData.strSerial);
+			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "Carriage Command = {0}\r\n", strCommand);
+			cMyDbCommand.CommandText = strCommand;
+			int iRet = cMyDbCommand.ExecuteNonQuery();
+			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "MyDbCommand.ExecuteNonQuery ~ {0}\r\n", iRet);
+
 			return (true);
 		}
 
@@ -209,10 +233,57 @@ namespace CtlDb
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　strFactory = {0}\r\n", cHistoryData.strFactory);
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　strSummary = {0}\r\n", cHistoryData.strSummary);
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　strForm = {0}\r\n", cHistoryData.strForm);
-			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　iSerial = {0}\r\n", cHistoryData.iSerial);
+			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　strSerial = {0}\r\n", cHistoryData.strSerial);
+
+			SQLiteCommand cMyDbCommand = cMyDbConnect.CreateCommand();
+			string strCommand = String.Format("INSERT INTO HistoryTable values( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')",
+										cHistoryData.iCarriageNumber,
+										cHistoryData.strCode,
+                                        cHistoryData.iYear,
+										cHistoryData.iMonth,
+										cHistoryData.iDay,
+										cHistoryData.strPlace,
+										cHistoryData.strFactory,
+										cHistoryData.strSummary,
+										cHistoryData.strForm,
+										cHistoryData.strSerial);
+			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "History Data Command = {0}\r\n", strCommand);
+			cMyDbCommand.CommandText = strCommand;
+			int iRet = cMyDbCommand.ExecuteNonQuery();
+			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "MyDbCommand.ExecuteNonQuery ~ {0}\r\n", iRet);
 
 			return (true);
 		}
+		//--------------------------------------------------------------------------------
+		/// <summary>
+		///		_BeginInsert	連続書込み開始
+		///		Notes	:
+		///			連続書込み時の処理速度向上の為、トランザクションを開始する。
+		///		History :			
+		///			2016.1.4 Mohayuni
+		/// </summary>
+		/// 
+		public bool _BeginInsert(
+				)
+		{
+			cMyTransaction = cMyDbConnect.BeginTransaction();
+			return (true);
+        }
+		//--------------------------------------------------------------------------------
+		/// <summary>
+		///		_BeginInsert	連続書込み終了
+		///		Notes	:
+		///			連続書込み時の終了時　コミットを実行する。
+		///		History :			
+		///			2016.1.4 Mohayuni
+		/// </summary>
+		/// 
+		public void _EndInsert(
+				)
+		{
+			cMyTransaction.Commit();
+		}
+
 
 	}   //	end class	_CtlDb
 }	//	end namespace	CtlDb

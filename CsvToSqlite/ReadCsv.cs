@@ -216,7 +216,7 @@ namespace ReadCsv
 				if (_strShagouToKeishiki(enConvKeishiki.enKokuden,
 								straData[(int)enCalumIndex.enShaban],
 								out cCarData.strForm,
-								out cCarData.iSerial) == false)
+								out cCarData.strSerial) == false)
 				{
 					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "Invalid rireki Data(車番){0} [{1}]\r\n", straData[(int)enCalumIndex.enShaban], straData);
 					return (true);      //	無効行としてLogに残し、処理は継続する。
@@ -249,14 +249,14 @@ namespace ReadCsv
 						bGetKeishikiRet = _strShagouToKeishiki(enConvKeishiki.enKyuukou,
 									straData[(int)enCalumIndex.enKaizoumaeShaban],
 									out cHistoryData.strForm,
-									out cHistoryData.iSerial);
+									out cHistoryData.strSerial);
                     }
 					else
 					{	//	新性能国電付番
 						bGetKeishikiRet = _strShagouToKeishiki(enConvKeishiki.enKokuden,
 									straData[(int)enCalumIndex.enKaizoumaeShaban],
 									out cHistoryData.strForm,
-									out cHistoryData.iSerial);
+									out cHistoryData.strSerial);
 					}
 					if (bGetKeishikiRet == false)
 					{
@@ -282,7 +282,7 @@ namespace ReadCsv
 					cHistoryData.strFactory = straData[(int)enCalumIndex.enSeizousho];
 					cHistoryData.strSummary = null;
 					cHistoryData.strForm = null;
-					cHistoryData.iSerial = 0;
+					cHistoryData.strSerial = null;
 					//	履歴データを書き込む
 					if (m_cCtlDb._WriteHistoryInfo(cHistoryData) == false)
 					{
@@ -306,7 +306,7 @@ namespace ReadCsv
 					cHistoryData.strFactory = null;
 					cHistoryData.strSummary = null;
 					cHistoryData.strForm = null;
-					cHistoryData.iSerial = 0;
+					cHistoryData.strSerial = null;
 					//	履歴データを書き込む
 					if (m_cCtlDb._WriteHistoryInfo(cHistoryData) == false)
 					{
@@ -336,7 +336,7 @@ namespace ReadCsv
 					if (_strShagouToKeishiki(enConvKeishiki.enKokuden,
 									straData[(int)enCalumIndex.enKaizongoShaban],
 									out cHistoryData.strForm,
-									out cHistoryData.iSerial) == false)
+									out cHistoryData.strSerial) == false)
 					{
 						_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "Invalid rireki Data(車番){0} [{1}]\r\n", straData[(int)enCalumIndex.enShaban], straData);
 						return (true);      //	無効行としてLogに残し、処理は継続する。
@@ -360,7 +360,7 @@ namespace ReadCsv
 					cHistoryData.strFactory = null;
 					cHistoryData.strSummary = null;
 					cHistoryData.strForm = null;
-					cHistoryData.iSerial = 0;
+					cHistoryData.strSerial = null;
 					//	履歴データを書き込む
 					if (m_cCtlDb._WriteHistoryInfo(cHistoryData) == false)
 					{
@@ -371,13 +371,6 @@ namespace ReadCsv
 				}
 			}
 
-#if NOP
-			_cCarriageData cCarData = new _cCarriageData();
-			cCarData.strClass = "EC";
-			cCarData.iSeriese = 101;
-			cCarData.strForm = "クモハ";
-			cCarData.iSerial = 2;
-#endif
 			return (true);
 		}
 
@@ -402,12 +395,12 @@ namespace ReadCsv
             enConvKeishiki enType,
             string strShagou,
 			out string strKeishiki,
-			out int	iSerial
+			out string strSerial
 		)
 		{
 			bool bRet = true;
 			strKeishiki = null;
-			iSerial = 0;
+			strSerial = null;
             switch (enType)
 			{
 				case enConvKeishiki.enKokuden:  //	新性能国電
@@ -432,8 +425,8 @@ namespace ReadCsv
 						break;
 					}
 					strKeishiki = straData[0];
-					iSerial = int.Parse(straData[1]);
-					if ( (strKeishiki == null) || (iSerial == 0) )
+					strSerial = straData[1];
+					if ( (strKeishiki == null) || (strSerial == null) )
 					{
 						_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "不正な車号文字列です。形式と番号に分離出来ません {0} \r\n", strShagou);
 						bRet = false;
@@ -449,7 +442,7 @@ namespace ReadCsv
 						break;
 					}
 					strKeishiki = strShagou.Substring(0, strShagou.Length - 3);
-                    iSerial = int.Parse(strShagou.Substring(strShagou.Length-3,3));
+                    strSerial = strShagou.Substring(strShagou.Length-3,3);
 					break;
 
 				case enConvKeishiki.enDC:       //	ディーゼル車

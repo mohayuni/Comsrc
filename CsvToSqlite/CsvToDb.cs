@@ -151,10 +151,13 @@ namespace CsvToSqlite
 
 			m_cReadCsv = new _ReadCsv(m_strCsvFileName, m_strClassName,m_strSeriese, m_cMyDb);
 
-			for (;;)
+			m_cMyDb._BeginInsert();
+
+            for (;;)
 			{
 				if (m_cReadCsv._ReadOneLineData() == false) break;
             }
+			m_cMyDb._EndInsert();
 		}
 	}
 }
