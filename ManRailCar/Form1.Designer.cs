@@ -91,6 +91,7 @@
             this.nameDB.Name = "nameDB";
             this.nameDB.Size = new System.Drawing.Size(167, 19);
             this.nameDB.TabIndex = 4;
+            this.nameDB.TextChanged += new System.EventHandler(this.nameDB_TextChanged);
             // 
             // nameCSV
             // 
