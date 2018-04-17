@@ -1,6 +1,6 @@
 ﻿namespace ManRailCar
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -57,16 +57,18 @@
             // 
             // selectCSV
             // 
+            this.selectCSV.Enabled = false;
             this.selectCSV.Location = new System.Drawing.Point(300, 88);
             this.selectCSV.Name = "selectCSV";
             this.selectCSV.Size = new System.Drawing.Size(85, 21);
             this.selectCSV.TabIndex = 1;
             this.selectCSV.Text = "CSV選択(&C)";
             this.selectCSV.UseVisualStyleBackColor = true;
-            this.selectCSV.Click += new System.EventHandler(this.button2_Click);
+            this.selectCSV.Click += new System.EventHandler(this.selectCSV_Click);
             // 
             // Serach
             // 
+            this.Serach.Enabled = false;
             this.Serach.Location = new System.Drawing.Point(300, 184);
             this.Serach.Name = "Serach";
             this.Serach.Size = new System.Drawing.Size(85, 21);
@@ -77,6 +79,7 @@
             // 
             // AddData
             // 
+            this.AddData.Enabled = false;
             this.AddData.Location = new System.Drawing.Point(300, 265);
             this.AddData.Name = "AddData";
             this.AddData.Size = new System.Drawing.Size(85, 21);

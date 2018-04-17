@@ -31,10 +31,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using Comsrc;    //	Sqlite DB3アクセスクラス
+using CtlDb;	//	Sqlite DB3アクセスクラス
 
 namespace ManRailCar
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         //--------------------------------------------------------------------------------
         /// <summary>
@@ -44,19 +46,19 @@ namespace ManRailCar
         ///		History :			
         ///			2017.02.04 Mohayuni
         /// </summary>
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void selectCSV_Click(object sender, EventArgs e)
         {
 
         }
 
         private void EndSys_Click(object sender, EventArgs e)
         {
-
+			this.Close();
         }
 
         //--------------------------------------------------------------------------------
@@ -65,14 +67,25 @@ namespace ManRailCar
         ///		Notes	:
         ///			nameDBで指定されたDBをオープンする
         ///		History :			
-        ///			20156.01.03 Mohayuni
+        ///			2018.02.01 Mohayuni
         /// </summary>
         /// <param name="object">	オブジェクト</param>
         /// <param name="EventArgs">	イベント引数</param>
         private void selectDB_Click(object sender, EventArgs e)
         {
+			//	コモンダイアログを開き、DBファイル名を取得する。
+			OpenFileDialog cDbDialog = new OpenFileDialog();
 
-        }
+			cDbDialog.InitialDirectory = Application.StartupPath;
+            if (cDbDialog.ShowDialog() != DialogResult.OK)
+				return;	//	DBファイルは選択されていない。
+			this.nameDB.Text = cDbDialog.FileName;
+			_CtlDb MainCtlDb = new _CtlDb(this.nameDB.Text);
+
+			this.selectCSV.Enabled = true;
+			this.AddData.Enabled = true;
+			this.Serach.Enabled = true;
+		}
 
         private void Serach_Click(object sender, EventArgs e)
         {
