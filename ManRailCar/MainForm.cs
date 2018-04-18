@@ -32,7 +32,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //using Comsrc;    //	Sqlite DB3アクセスクラス
-using CtlDb;	//	Sqlite DB3アクセスクラス
+using CtlDb;    //	Sqlite DB3アクセスクラス
+using ReadCsv;	//	
 
 namespace ManRailCar
 {
@@ -49,14 +50,30 @@ namespace ManRailCar
         public MainForm()
         {
             InitializeComponent();
-        }
+		}
 
-        private void selectCSV_Click(object sender, EventArgs e)
+        //--------------------------------------------------------------------------------
+        /// <summary>
+        ///		selectCSV_Click	CSV選択ボタン押下
+        ///		Notes	:
+        ///			nameCSVで指定されたDBをオープンする
+        ///		History :			
+        ///			2018.04.17 Mohayuni
+        /// </summary>
+        /// <param name="object">	オブジェクト</param>
+        /// <param name="EventArgs">	イベント引数</param>
+		private void selectCSV_Click(object sender, EventArgs e)
         {
+			//	コモンダイアログを開き、CSVファイル名を取得する。
+			OpenFileDialog cCsvDialog = new OpenFileDialog();
 
-        }
+			cCsvDialog.InitialDirectory = Application.StartupPath;
+			if (cCsvDialog.ShowDialog() != DialogResult.OK)
+				return; //	CSVファイルは選択されていない。
+			this.nameCSV.Text = cCsvDialog.FileName;
+		}
 
-        private void EndSys_Click(object sender, EventArgs e)
+		private void EndSys_Click(object sender, EventArgs e)
         {
 			this.Close();
         }
@@ -80,7 +97,6 @@ namespace ManRailCar
             if (cDbDialog.ShowDialog() != DialogResult.OK)
 				return;	//	DBファイルは選択されていない。
 			this.nameDB.Text = cDbDialog.FileName;
-			_CtlDb MainCtlDb = new _CtlDb(this.nameDB.Text);
 
 			this.selectCSV.Enabled = true;
 			this.AddData.Enabled = true;
@@ -92,12 +108,33 @@ namespace ManRailCar
 
         }
 
-        private void AddData_Click(object sender, EventArgs e)
+		//--------------------------------------------------------------------------------
+		/// <summary>
+		///		AddData_Click	データ追加ボタン押下
+		///		Notes	:
+		///			指定データベースにCSVを追加する
+		///		History :			
+		///			2018.04.18 Mohayuni
+		/// </summary>
+		/// <param name="object">	オブジェクト</param>
+		/// <param name="EventArgs">	イベント引数</param>
+		private void AddData_Click(object sender, EventArgs e)
         {
+			_CtlDb cMainCtlDb = new _CtlDb(this.nameDB.Text);
 
-        }
+			_ReadCsv cReadCsv = new _ReadCsv(this.nameCSV.Text, this.nameClass.Text, this.nameSeries.Text, cMainCtlDb);
 
-        private void nameDB_TextChanged(object sender, EventArgs e)
+			cMainCtlDb._BeginInsert();
+
+			for (;;)
+			{
+				if (cReadCsv._ReadOneLineData() == false) break;
+			}
+			cMainCtlDb._EndInsert();
+
+		}
+
+		private void nameDB_TextChanged(object sender, EventArgs e)
         {
 
         }
