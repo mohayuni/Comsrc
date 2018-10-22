@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestDialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ComboBox1Index>3</ComboBox1Index>
+  <TestBox1String>Load時のテキスト</TestBox1String>
+  <ValueObj1>
+    <min>1</min>
+    <value>5</value>
+    <max>100</max>
+  </ValueObj1>
+  <ComboBox1Items>Combo0</ComboBox1Items>
+  <ComboBox1Items>Combo1</ComboBox1Items>
+  <ComboBox1Items>Combo2</ComboBox1Items>
+  <ComboBox1Items>Combo3</ComboBox1Items>
+  <ComboBox1Items>Combo4</ComboBox1Items>
+  <ComboBox1Items>Combo5</ComboBox1Items>
+  <ComboBox1Items>Combo6</ComboBox1Items>
+  <ComboBox1Items>Combo7</ComboBox1Items>
+  <ComboBox1Items>Combo8</ComboBox1Items>
+  <ComboBox1Items>Combo9</ComboBox1Items>
+</TestDialog>

@@ -86,7 +86,7 @@ INSERT INTO HistoryTable values(1,'‰ü”Ô',1959,06,01,'O‘é','O‘é','‰ü‘¢”ÅÔ†ƒ‚ƒ
 INSERT INTO HistoryTable values(1,'‰ü”Ô',1959,06,01,'O‘é','O‘é','‰ü‘¢”ÅÔ†ƒ‚ƒn90512');
 
 ƒe[ƒuƒ‹‚Ìƒ_ƒ“ƒv
-select * from CarriageTable
+select * from CarriageTable;
 
 ƒe[ƒuƒ‹‚Ìíœ
 drop table CarriageTable

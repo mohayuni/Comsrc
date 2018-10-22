@@ -1,0 +1,16 @@
+class vdbgo (FFFFFFFF) 
+Hello World!
+2009/08/14 11:31:28.161 tp_comsrc.cs 0079 : ”š 100, •¶š—ñtext
+2009/08/14 11:31:28.271 tp_comsrc.cs 0081 : ”š 100h, •¶š—ñ	testErr
+2009/08/14 11:31:28.271 tp_comsrc.cs 0082 : ”š 100h, •¶š—ñ	testWrn
+2009/08/14 11:31:28.271 tp_comsrc.cs 0083 : ”š 100h, •¶š—ñ	testInf
+2009/08/14 11:31:28.271 tp_comsrc.cs 0084 : ”š 100h, •¶š—ñ	testMon`
+2009/08/14 11:31:28.271 _com_log.cs 0246 : Make _logFileName = f:\tk\Comsrc\log\logSize_0.log
+2009/08/14 11:31:28.271 _com_log.cs 0246 : Make _logFileName = f:\tk\Comsrc\log\logLine_0.log
+2009/08/14 11:31:28.271 _com_log.cs 0302 : logOptionLine Count = 2
+2009/08/14 11:31:28.271 _com_log.cs 0246 : Make _logFileName = f:\tk\Comsrc\log\20090814logDay_.log
+2009/08/14 11:31:28.271 _com_log.cs 0246 : Make _logFileName = f:\tk\Comsrc\log\logNon_.log
+2009/08/14 11:31:28.271 _com_log.cs 0246 : Make _logFileName = f:\tk\Comsrc\log\logSize_1.log
+2009/08/14 11:31:28.271 _com_log.cs 0246 : Make _logFileName = f:\tk\Comsrc\log\logSize_2.log
+2009/08/14 11:31:28.286 _com_log.cs 0246 : Make _logFileName = f:\tk\Comsrc\log\logSize_3.log
+2009/08/14 11:31:28.286 _com_log.cs 0302 : logOptionLine Count = 1

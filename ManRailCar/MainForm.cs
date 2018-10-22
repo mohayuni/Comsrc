@@ -39,6 +39,8 @@ namespace ManRailCar
 {
     public partial class MainForm : Form
     {
+        private const string DebugTest = "test";
+
         //--------------------------------------------------------------------------------
         /// <summary>
         ///		Form1	コンストラクタ
@@ -105,20 +107,22 @@ namespace ManRailCar
 
         private void Serach_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Serach Test");  
         }
 
-		//--------------------------------------------------------------------------------
-		/// <summary>
-		///		AddData_Click	データ追加ボタン押下
-		///		Notes	:
-		///			指定データベースにCSVを追加する
-		///		History :			
-		///			2018.04.18 Mohayuni
-		/// </summary>
-		/// <param name="object">	オブジェクト</param>
-		/// <param name="EventArgs">	イベント引数</param>
-		private void AddData_Click(object sender, EventArgs e)
+   
+
+        //--------------------------------------------------------------------------------
+        /// <summary>
+        ///		AddData_Click	データ追加ボタン押下
+        ///		Notes	:
+        ///			指定データベースにCSVを追加する
+        ///		History :			
+        ///			2018.04.18 Mohayuni
+        /// </summary>
+        /// <param name="object">	オブジェクト</param>
+        /// <param name="EventArgs">	イベント引数</param>
+        private void AddData_Click(object sender, EventArgs e)
         {
 			_CtlDb cMainCtlDb = new _CtlDb(this.nameDB.Text);
 
