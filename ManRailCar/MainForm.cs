@@ -97,6 +97,12 @@ namespace ManRailCar
 
 			cDbDialog.CheckFileExists = false;
 			cDbDialog.InitialDirectory = Application.StartupPath;
+            cDbDialog.Filter = "DB ファイル（*.db)|*.db";
+            cDbDialog.Title = "DBファイルを選択/新規の場合ファイル名を入力";
+            //  存在しないファイル=新規ファイルとして扱う
+            //　ファイル名がブランクの場合はダイアログで「開く」が押下出来ない
+            //  キャンセルの場合は、DialogResultがOKにならない。
+            cDbDialog.CheckFileExists = false;
             if (cDbDialog.ShowDialog() != DialogResult.OK)
 				return;	//	DBファイルは選択されていない。
 			this.nameDB.Text = cDbDialog.FileName;
