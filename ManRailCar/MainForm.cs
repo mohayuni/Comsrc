@@ -95,6 +95,7 @@ namespace ManRailCar
 			//	コモンダイアログを開き、DBファイル名を取得する。
 			OpenFileDialog cDbDialog = new OpenFileDialog();
 
+			cDbDialog.CheckFileExists = false;
 			cDbDialog.InitialDirectory = Application.StartupPath;
             if (cDbDialog.ShowDialog() != DialogResult.OK)
 				return;	//	DBファイルは選択されていない。
@@ -107,7 +108,9 @@ namespace ManRailCar
 
         private void Serach_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Serach Test");  
+			//           MessageBox.Show("Serach Test");  
+			EditForm EditForm = new EditForm();
+			EditForm.Show();
         }
 
    
@@ -129,11 +132,14 @@ namespace ManRailCar
 			_ReadCsv cReadCsv = new _ReadCsv(this.nameCSV.Text, this.nameClass.Text, this.nameSeries.Text, cMainCtlDb);
 
 			cMainCtlDb._BeginInsert();
+			progressBarExecute.Value = 0;
 
-			for (;;)
+			for (int iLine = 0; ; iLine++)
 			{
 				if (cReadCsv._ReadOneLineData() == false) break;
+				progressBarExecute.Value = iLine* progressBarExecute.Maximum / cReadCsv.m_iLineCount;
 			}
+			progressBarExecute.Value = progressBarExecute.Maximum;
 			cMainCtlDb._EndInsert();
 
 		}
@@ -142,5 +148,16 @@ namespace ManRailCar
         {
 
         }
-    }
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+
+		}
+#if NOP
+		private void label6_Click(object sender, EventArgs e)
+		{
+
+		}
+#endif
+	}
 }

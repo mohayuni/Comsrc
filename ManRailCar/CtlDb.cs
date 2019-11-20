@@ -61,7 +61,8 @@ namespace CtlDb
 		/// 履歴情報クラス
 		public class _cHistoryData
 		{
-			public int iCarriageNumber=0;	//	車輛テーブルのROWID
+		//	public int iCarriageNumber=0;	//	車輛テーブルのROWID
+			public string strCarriageNumber;
 			public string strCode=null;		//	履歴コード	(改番、改造、新製、廃車...)
 			public int iYear=0;				//	履歴年
 			public int iMonth=0;			//	履歴月
@@ -224,7 +225,7 @@ namespace CtlDb
 		)
 		{
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "_cHistoryData\r\n");
-			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　iCarriageNumber = {0}\r\n", cHistoryData.iCarriageNumber);
+			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　strCarriageNumber = {0}\r\n", cHistoryData.strCarriageNumber);
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　strCode = {0}\r\n", cHistoryData.strCode);
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　iYear = {0}\r\n", cHistoryData.iYear);
 			_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestMon, "　　iMonth = {0}\r\n", cHistoryData.iMonth);
@@ -237,7 +238,7 @@ namespace CtlDb
 
 			SQLiteCommand cMyDbCommand = cMyDbConnect.CreateCommand();
 			string strCommand = String.Format("INSERT INTO HistoryTable values( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')",
-										cHistoryData.iCarriageNumber,
+										cHistoryData.strCarriageNumber,
 										cHistoryData.strCode,
                                         cHistoryData.iYear,
 										cHistoryData.iMonth,

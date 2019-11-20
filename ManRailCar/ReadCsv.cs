@@ -82,10 +82,13 @@ namespace ReadCsv
 
 		//-----メンバー変数定義--------------------------------------------------------------------
 		private string m_strFull;   //	指定CSVファイル全体を読み込んだ文字列
-		private System.IO.StringReader m_streaderFull;  //	m_strFullにアクセスする為のStringReader構造体
+		private System.IO.StringReader m_streaderFull;		//	m_strFullにアクセスする為のStringReader構造体
+		private System.IO.StringReader m_streaderForLine;  //	m_strFullのライン数をカウントするStringReader構造体
+		public int m_iLineCount;    //	m_strFullのライン数
 		private _CtlDb m_cCtlDb;
 		private string m_strClassName;	//	種別コード名称	(EC/DC/PC...)
 		private string m_strSeriese;    //	系列名称		(101系/103系...)
+		private string m_strLastCarriageNumber;	//	直前の車両管理番号
 
 		//--------------------------------------------------------------------------------
 		/// <summary>
@@ -107,20 +110,32 @@ namespace ReadCsv
             _CtlDb	cDb
         )
 		{
-			try
+            try
 			{
 				using (System.IO.StreamReader cCsvReader = new System.IO.StreamReader(strFileName, System.Text.Encoding.GetEncoding("shift_jis")))
 				{
 					m_strFull = cCsvReader.ReadToEnd();
 					m_streaderFull = new StringReader(m_strFull);
-                }
+					m_streaderForLine = new StringReader(m_strFull);
+					for (m_iLineCount = 0; ; m_iLineCount++)
+					{
+						if (m_streaderForLine.ReadLine() == null)
+						{   //	EOF
+							m_streaderForLine.Dispose();
+							break;
+						}
+					}
+					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestInf, "{0} ライン数 ({1})\r\n", strFileName, m_iLineCount);
+				}
 				m_cCtlDb = cDb;
 				m_strClassName = strClassName;
 				m_strSeriese = strSeriese;
-            }
+				m_strLastCarriageNumber = null;
+
+			}
 			catch (InvalidCastException except)
 			{
-				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "文字列{0} 読込エラー ({1})\r\n", 256, strFileName, except.Message);
+				_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "{0} 読込エラー ({1})\r\n", strFileName, except.Message);
 			}	
 
 			return;
@@ -206,7 +221,7 @@ namespace ReadCsv
 			//	データは妥当と判断
 			_CtlDb._cCarriageData cCarData = new _CtlDb._cCarriageData();
 			_CtlDb._cHistoryData cHistoryData = new _CtlDb._cHistoryData();
-			int	iCarriageNumber = 123;	//	暫定
+			string	strCarriageNumber = m_strLastCarriageNumber;	//	暫定
 			//	車番がブランクではない
 			if (straData[(int)enCalumIndex.enShaban] != "")
 			{
@@ -226,13 +241,14 @@ namespace ReadCsv
 					_com_vdbgo.vDbgoVerbose(_com_vdbgo.TestErr, "DBへの書込みに失敗!!\r\n");
 					return (false);      //	致命的なエラーなので処理を中断させる
 				}
+				strCarriageNumber = m_strLastCarriageNumber = m_strClassName + m_strSeriese + cCarData.strForm +cCarData.strSerial;
 
 				//	改造前車番がブランクではない
 				if (straData[(int)enCalumIndex.enKaizoumaeShaban] != "")
 				{
 					//	改造・改番で履歴情報を追加
 					//	履歴情報を作成する。
-					cHistoryData.iCarriageNumber = iCarriageNumber;
+					cHistoryData.strCarriageNumber = strCarriageNumber;
 					cHistoryData.strCode = _CtlDb.cstrKaizou;
 					cHistoryData.iYear = DtShinsei.Year;
 					cHistoryData.iMonth = DtShinsei.Month;
@@ -273,7 +289,7 @@ namespace ReadCsv
 				else
 				{   //	新製情報を追加する。
 					//	履歴情報を作成する。
-					cHistoryData.iCarriageNumber = iCarriageNumber;
+					cHistoryData.strCarriageNumber = strCarriageNumber;
 					cHistoryData.strCode = _CtlDb.cstrShinsei;
 					cHistoryData.iYear = DtShinsei.Year;
 					cHistoryData.iMonth = DtShinsei.Month;
@@ -297,7 +313,7 @@ namespace ReadCsv
 			{
 				{   //	転属情報を追加する。
 					//	履歴情報を作成する。
-					cHistoryData.iCarriageNumber = iCarriageNumber;
+					cHistoryData.strCarriageNumber = strCarriageNumber;
 					cHistoryData.strCode = _CtlDb.cstrTenzoku;
 					cHistoryData.iYear = DtTenzoku.Year;
 					cHistoryData.iMonth = DtTenzoku.Month;
@@ -324,7 +340,7 @@ namespace ReadCsv
 				{
 					//	改造廃車履歴を追加する。
 					//	履歴情報を作成する。
-					cHistoryData.iCarriageNumber = iCarriageNumber;
+					cHistoryData.strCarriageNumber = strCarriageNumber;
 					cHistoryData.strCode = _CtlDb.cstrKaizouHaisha;
 					cHistoryData.iYear = DtHaisha.Year;
 					cHistoryData.iMonth = DtHaisha.Month;
@@ -351,7 +367,7 @@ namespace ReadCsv
 				else
 				{   //	廃車情報を追加する。
 					//	履歴情報を作成する。
-					cHistoryData.iCarriageNumber = iCarriageNumber;
+					cHistoryData.strCarriageNumber = strCarriageNumber;
 					cHistoryData.strCode = _CtlDb.cstrHaisha;
 					cHistoryData.iYear = DtHaisha.Year;
 					cHistoryData.iMonth = DtHaisha.Month;

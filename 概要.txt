@@ -58,10 +58,12 @@ http://www.dbonline.jp/sqlite/
 	カラム4	車号			(Serial)
 	カラム4	概要			(Summary)
 	車輛管理番号			(CarriageNumber)	PRIMARY KEY(種別コード,形式番号,形式,車号)
-	ROWID
+	＝＞車両管理番号はDBに登録せず。”種別コード,形式番号,形式,車号”作成することとする
+	ROWID　　				DB内にあるが、参照しない？
 	
 履歴テーブル		（HistoryTable）
-	カラム1	車輛テーブルID	(CarriageNumber)	= 車輛テーブルのROW ID
+	カラム1	車輛テーブルID	(CarriageNumber)	= 車輛テーブルのROW ID　－＞止め
+	カラム1	車両管理番号	(CarriageNumber)	= ”種別コード,形式番号,形式,車号”で作成
 	カラム2	履歴コード		(Code)
 	カラム3	履歴年			(Year)
 	カラム4	履歴月			(Month)
