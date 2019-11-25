@@ -40,16 +40,17 @@ namespace ManRailCar
     public partial class MainForm : Form
     {
         private const string DebugTest = "test";
+		private _CtlDb cMainCtlDb = null;
 
-        //--------------------------------------------------------------------------------
-        /// <summary>
-        ///		Form1	コンストラクタ
-        ///		Notes	:
-        ///			フォームクラスの初期化。
-        ///		History :			
-        ///			2017.02.04 Mohayuni
-        /// </summary>
-        public MainForm()
+		//--------------------------------------------------------------------------------
+		/// <summary>
+		///		Form1	コンストラクタ
+		///		Notes	:
+		///			フォームクラスの初期化。
+		///		History :			
+		///			2017.02.04 Mohayuni
+		/// </summary>
+		public MainForm()
         {
             InitializeComponent();
 		}
@@ -106,6 +107,7 @@ namespace ManRailCar
             if (cDbDialog.ShowDialog() != DialogResult.OK)
 				return;	//	DBファイルは選択されていない。
 			this.nameDB.Text = cDbDialog.FileName;
+			_CtlDb cMainCtlDb = new _CtlDb(this.nameDB.Text);
 
 			this.selectCSV.Enabled = true;
 			this.AddData.Enabled = true;
@@ -133,7 +135,6 @@ namespace ManRailCar
         /// <param name="EventArgs">	イベント引数</param>
         private void AddData_Click(object sender, EventArgs e)
         {
-			_CtlDb cMainCtlDb = new _CtlDb(this.nameDB.Text);
 
 			_ReadCsv cReadCsv = new _ReadCsv(this.nameCSV.Text, this.nameClass.Text, this.nameSeries.Text, cMainCtlDb);
 
