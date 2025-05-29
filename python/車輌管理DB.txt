@@ -1,0 +1,49 @@
+基本情報
+・系列
+・形式
+・車号
+・新製年月日
+・廃車年月日
+・新製メーカ
+・改造前車号
+・改造後車号
+・改造工場
+
+#車輛基本情報（Rolling Stock Info）
+CREATE TABLE RS_INFO (
+    RsId INT PRIMARY KEY,			#プライマリーキー
+    Series VARCHAR(32) NOT NULL,	#形式名	Ex.101系
+    ModelName VARCHAR(32) NOT NULL	#型式名	Ex.クモハ101
+    CarNum VARCHAR(32) NOT NULL		#車号	Ex.クモハ101-58
+    RegDate DATE NOT NULL			#新製年月日(Registration Date)
+    InitDep VARCHAR(64)				#新製配置先
+    PreModName VARCHAR(32)			#改造前車号(Pre-Modification Name)当該車が改造車の場合
+    InitFactory VARCHAR(64)			#製造メーカ
+    DeregDate DATE					#廃車年月日(Deregistration Date)
+    ModDate DATE					#改造年月日(Modification Date)以下は当該車が改造された場合
+    PostModDate VARCHAR(32)			#改造後車号(Post-Modification Name)
+    ModDepot VARCHAR(64)			#改造工場(Modification Depot)
+);
+
+経歴情報
+・配置区/配置年月日
+・改造項目/改造年月日　（塗装変更を含む）
+
+#転属情報（Deployment History）
+CREATE TABLE DEP_HISTORY (
+    DepId INT PRIMARY KEY,			#プライマリーキー
+    RsId INT NOT NULL,				#車輛基本情報ID
+    DepDate DATE NOT NULL			#転属年月日(Deplyment Date)
+    DepLocation VARCHAR(64) NOT NULL#転属先(Deployment Location)
+);
+
+
+#車号変更を伴わない改造情報（Modification History）
+CREATE TABLE MOD_HISTORY (
+    ModId INT PRIMARY KEY,			#プライマリーキー
+    RsId INT NOT NULL,				#車輛基本情報ID
+    ModDetail VARCHAR(128) NOT NULL	#改造工事内容(Modification Detail)
+    ModeDate DATE NOT NULL			#改造年月日(Modification Date)
+    ModDepot VARCHAR(64) NOT NULL	#改造工場(Modification Depot)
+);
+

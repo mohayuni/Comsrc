@@ -1,0 +1,920 @@
+; The keyword help for Python standard library
+; pay attention to '\ n' in print()
+; no default value of datetime in replace()
+; description omitted in emit()
+AbstractBasicAuthHandler /// (password_mgr=None) request. [urllib]
+AbstractDigestAuthHandler /// (password_mgr=None) request. [urllib]
+Array /// (typecode_or_type, size_or_initializer, *, lock=True) multiprocessing. / sharedctypes. [multiprocessing]\n(typecode, sequence) SyncManager. [multiprocessing.managers]
+Barrier /// (parties[, action[, timeout]]) multiprocessing. / SyncManager. [multiprocessing.managers]\n(parties, action=None, timeout=None) threading.
+BaseManager /// ([address[, authkey]]) managers. [multiprocessing]
+BaseRotatingHandler /// (filename, mode, encoding=None, delay=False, errors=None) handlers. [logging]
+BoundedSemaphore /// ([value]) multiprocessing. / SyncManager. [multiprocessing.managers]\n(value=1) threading.
+BufferedRWPair /// (reader, writer, buffer_size=DEFAULT_BUFFER_SIZE) io.
+BufferedRandom /// (raw, buffer_size=DEFAULT_BUFFER_SIZE) io.
+BufferedReader /// (raw, buffer_size=DEFAULT_BUFFER_SIZE) io.
+BufferedWriter /// (raw, buffer_size=DEFAULT_BUFFER_SIZE) io.
+BufferingHandler /// (capacity) handlers. [logging]
+BytesIO /// ([initial_bytes]) io.
+Client /// (address[, family[, authkey]]) connection. [multiprocessing]
+Condition /// ([lock]) multiprocessing. / SyncManager. [multiprocessing.managers]\n(lock=None) threading.
+ConfigParser /// (defaults=None, dict_type=dict, allow_no_value=False, delimiters=('=', ':'), comment_prefixes=('#', ';'), inline_comment_prefixes=None, strict=True, empty_lines_in_values=True, default_section=configparser.DEFAULTSECT, interpolation=BasicInterpolation(), converters={}, allow_unnamed_section=False) configparser.
+ContentTooShortError /// (msg, content) error. [urllib]
+DatagramHandler /// (host, port) handlers. [logging]
+DefragResult /// (url, fragment) parse. [urllib]
+DefragResultBytes /// (url, fragment) parse. [urllib]
+Event /// () SyncManager. [multiprocessing.managers]
+FileHandler /// (filename, mode='a', encoding=None, delay=False, errors=None) logging.
+FileIO /// (name, mode='r', closefd=True, opener=None) io.
+Formatter /// (fmt=None, datefmt=None, style='%', validate=True) logging.
+HTTPBasicAuthHandler /// (password_mgr=None) request. [urllib]
+HTTPCookieProcessor /// (cookiejar=None) request. [urllib]
+HTTPDigestAuthHandler /// (password_mgr=None) request. [urllib]
+HTTPHandler /// (host, url, method='GET', secure=False, credentials=None, context=None) handlers. [logging]
+HTTPSHandler /// (debuglevel=0, context=None, check_hostname=None) request. [urllib]
+JSONDecodeError /// (msg, doc, pos) json.
+JSONDecoder /// (*, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, strict=True, object_pairs_hook=None) json.
+JSONEncoder /// (*, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, default=None) json.
+JoinableQueue /// ([maxsize]) multiprocessing.
+Listener /// ([address[, family[, backlog[, authkey]]]]) connection. [multiprocessing]
+Lock /// () SyncManager. [multiprocessing.managers]
+LogRecord /// (name, level, pathname, lineno, msg, args, exc_info, func=None, sinfo=None) logging.
+LoggerAdapter /// (logger, extra) logging.
+Manager /// () multiprocessing.
+MemoryHandler /// (capacity, flushLevel=ERROR, target=None, flushOnClose=True) handlers. [logging]
+NTEventLogHandler /// (appname, dllname=None, logtype='Application') handlers. [logging]
+NamedTemporaryFile /// (mode='w+b', buffering=- 1, encoding=None, newline=None, suffix=None, prefix=None, dir=None, delete=True, *, errors=None, delete_on_close=True) tempfile.
+Namespace /// () SyncManager. [multiprocessing.managers]
+ParseResult /// (scheme, netloc, path, params, query, fragment) parse. [urllib]
+ParseResultBytes /// (scheme, netloc, path, params, query, fragment) parse. [urllib]
+Path /// (*pathsegments) pathlib.
+Pipe /// ([duplex]) multiprocessing.
+Pool /// ([processes[, initializer[, initargs[, maxtasksperchild[, context]]]]]) pool. [multiprocessing]
+PosixPath /// (*pathsegments) pathlib.
+ProxyBasicAuthHandler /// (password_mgr=None) request. [urllib]
+ProxyDigestAuthHandler /// (password_mgr=None) request. [urllib]
+ProxyHandler /// (proxies=None) request. [urllib]
+Queue /// ([maxsize]) multiprocessing. / SyncManager. [multiprocessing.managers]
+QueueHandler /// (queue) handlers. [logging]
+QueueListener /// (queue, *handlers, respect_handler_level=False) handlers. [logging]
+RLock /// () SyncManager. [multiprocessing.managers]
+RawArray /// (typecode_or_type, size_or_initializer) sharedctypes. [multiprocessing]
+RawConfigParser /// (defaults=None, dict_type=dict, allow_no_value=False, *, delimiters=('=', ':'), comment_prefixes=('#', ';'), inline_comment_prefixes=None, strict=True, empty_lines_in_values=True, default_section=configparser.DEFAULTSECT[, interpolation]) configparser.
+RawValue /// (typecode_or_type, *args) sharedctypes. [multiprocessing]
+Request /// (url, data=None, headers={}, origin_req_host=None, unverifiable=False, method=None) request. [urllib]
+RobotFileParser /// (url='') robotparser. [urllib]
+RotatingFileHandler /// (filename, mode='a', maxBytes=0, backupCount=0, encoding=None, delay=False, errors=None) handlers. [logging]
+SMTPHandler /// (mailhost, fromaddr, toaddrs, subject, credentials=None, secure=None, timeout=1.0) handlers. [logging]
+Semaphore /// ([value]) multiprocessing. / SyncManager. [multiprocessing.managers]\n(value=1) threading.
+SocketHandler /// (host, port) handlers. [logging]
+SplitResult /// (scheme, netloc, path, query, fragment) parse. [urllib]
+SplitResultBytes /// (scheme, netloc, path, query, fragment) parse. [urllib]
+SpooledTemporaryFile /// (max_size=0, mode='w+b', buffering=-1, encoding=None, newline=None, suffix=None, prefix=None, dir=None, *, errors=None) tempfile.
+StreamHandler /// (stream=None) logging.
+StringIO /// (initial_value='', newline='\n') io.
+SysLogHandler /// (address=('localhost', SYSLOG_UDP_PORT), facility=LOG_USER, socktype=socket.SOCK_DGRAM) handlers. [logging]
+TemporaryDirectory /// (suffix=None, prefix=None, dir=None) tempfile.
+TemporaryFile /// (mode='w+b', buffering=-1, encoding=None, newline=None, suffix=None, prefix=None, dir=None, *, errors=None) tempfile.
+TextIOWrapper /// (buffer, encoding=None, errors=None, newline=None, line_buffering=False, write_through=False) io.
+Thread /// (group=None, target=None, name=None, args=(), kwargs={}, *, daemon=None) threading.
+TimedRotatingFileHandler /// (filename, when='h', interval=1, backupCount=0, encoding=None, delay=False, utc=False, atTime=None, errors=None) handlers. [logging]
+Timer /// (interval, function, args=None, kwargs=None) threading.
+Value /// (typecode_or_type, *args, lock=True) multiprocessing. / sharedctypes. [multiprocessing]\n(typecode, value) SyncManager. [multiprocessing.managers]
+WCOREDUMP /// (status) os.
+WEXITSTATUS /// (status) os.
+WIFCONTINUED /// (status) os.
+WIFEXITED /// (status) os.
+WIFSIGNALED /// (status) os.
+WIFSTOPPED /// (status) os.
+WSTOPSIG /// (status) os.
+WTERMSIG /// (status) os.
+WatchedFileHandler /// (filename, mode='a', encoding=None, delay=False, errors=None) handlers. [logging]
+WindowsPath /// (*pathsegments) pathlib.
+__abs__ /// (self) object.
+__add__ /// (self, other) object.
+__aenter__ /// (self) object.
+__aexit__ /// (self, exc_type, exc_value, traceback) object.
+__aiter__ /// (self) object.
+__and__ /// (self, other) object.
+__anext__ /// (self) object.
+__await__ /// (self) object.
+__bool__ /// (self) object.
+__bytes__ /// (self) object.
+__call__ /// (self[, args...]) object.
+__ceil__ /// (self) object.
+__class_getitem__ /// (cls, key) object.
+__complex__ /// (self) object.
+__contains__ /// (self, item) object.
+__del__ /// (self) object.\n() IOBase. [io]
+__delattr__ /// (self, name) object.
+__delete__ /// (self, instance) object.
+__delitem__ /// (self, key) object.
+__dir__ /// (self) object.
+__divmod__ /// (self, other) object.
+__enter__ /// (self) object.
+__eq__ /// (self, other) object.
+__exit__ /// (self, exc_type, exc_value, traceback) object.
+__float__ /// (self) object.
+__floor__ /// (self) object.
+__floordiv__ /// (self, other) object.
+__format__ /// (self, format_spec) object.\n(format) date. / datetime. / time. [datetime]
+__ge__ /// (self, other) object.
+__get__ /// (self, instance, owner=None) object.
+__getattr__ /// (self, name) object.
+__getattribute__ /// (self, name) object.
+__getitem__ /// (self, key) object.
+__gt__ /// (self, other) object.
+__hash__ /// (self) object.
+__iadd__ /// (self, other) object.
+__iand__ /// (self, other) object.
+__ifloordiv__ /// (self, other) object.
+__ilshift__ /// (self, other) object.
+__imatmul__ /// (self, other) object.
+__imod__ /// (self, other) object.
+__imul__ /// (self, other) object.
+__index__ /// (self) object.
+__init__ /// (self[, ...]) object.\n(level=NOTSET) Handler. [logging]
+__init_subclass__ /// (cls) object.
+__instancecheck__ /// (self, instance) class.
+__int__ /// (self) object.
+__invert__ /// (self) object.
+__ior__ /// (self, other) object.
+__ipow__ /// (self, other[, modulo]) object.
+__irshift__ /// (self, other) object.
+__isub__ /// (self, other) object.
+__iter__ /// () container. / iterator.\n(self) object.
+__itruediv__ /// (self, other) object.
+__ixor__ /// (self, other) object.
+__le__ /// (self, other) object.
+__len__ /// (self) object.
+__length_hint__ /// (self) object.
+__lshift__ /// (self, other) object.
+__lt__ /// (self, other) object.
+__matmul__ /// (self, other) object.
+__missing__ /// (self, key) object.
+__mod__ /// (self, other) object.
+__mul__ /// (self, other) object.
+__ne__ /// (self, other) object.
+__neg__ /// (self) object.
+__new__ /// (cls[, ...]) object.
+__next__  /// () irerator.
+__or__ /// (self, other) object.
+__pos__ /// (self) object.
+__pow__ /// (self, other[, modulo]) object.
+__radd__ /// (self, other) object.
+__rand__ /// (self, other) object.
+__rdivmod__ /// (self, other) object.
+__repr__ /// (self) object.\n() BaseProxy. [multiprocessing.managers]
+__reversed__ /// (self) object.
+__rfloordiv__ /// (self, other) object.
+__rlshift__ /// (self, other) object.
+__rmatmul__ /// (self, other) object.
+__rmod__ /// (self, other) object.
+__rmul__ /// (self, other) object.
+__ror__ /// (self, other) object.
+__round__ /// (self[, ndigits]) object.
+__rpow__ /// (self, other[, modulo]) object.
+__rrshift__ /// (self, other) object.
+__rshift__ /// (self, other) object.
+__rsub__ /// (self, other) object.
+__rtruediv__ /// (self, other) object.
+__rxor__ /// (self, other) object.
+__set__ /// (self, instance, value) object.
+__set_name__ /// (self, owner, name) object.
+__setattr__ /// (self, name, value) object.
+__setitem__ /// (self, key, value) object.
+__str__ /// (self) object.\n() date. / datetime. / time. [datetime]\n() BaseProxy. [multiprocessing.managers]
+__sub__ /// (self, other) object.
+__subclasscheck__ /// (self, subclass) class.
+__truediv__ /// (self, other) object.
+__trunc__ /// (self) object.
+__xor__ /// (self, other) object.
+_callmethod /// (methodname[, args[, kwds]]) BaseProxy. [multiprocessing.managers]
+_exit /// (n) os.
+_getvalue /// () BaseProxy. [multiprocessing.managers]
+abort /// () os.\n() Barrier. [threading]
+abs /// (x)
+abspath /// (path) path. [os]
+accept /// () Listener. [multiprocessing.connection]
+access /// (path, mode, *, dir_fd=None, effective_ids=False, follow_symlinks=True) os.
+acquire /// () Handler. [logging]\n(block=True, timeout=None) Lock. / RLock. [multiprocessing]\n(blocking=True, timeout=- 1) Lock. / RLock. [threading]\n(*args) Condition. [threading]\n(blocking=True, timeout=None) Semaphore. [threading]
+active_children /// () multiprocessing.
+active_count /// () threading.
+add /// (elem) set.
+addFilter /// (filter) Logger. / Handler. [logging]
+addHandler /// (hdlr) Logger. [logging]
+addLevelName /// (level, levelName) logging.
+add_dll_directory /// (path) os.
+add_handler /// (handler) OpenerDirector. [urllib]
+add_header /// (key, val) Request. [urllib]
+add_parent /// (director) BaseHandler. [urllib]
+add_password /// (realm, uri, user, passwd) HTTPPasswordMgr. [urllib]\n(realm, uri, user, passwd, is_authenticated=False) HTTPPasswordMgrWithPriorAuth. [urllib]
+add_section /// (section) ConfigParser. / RawConfigParser. [configparser]
+add_unredirected_header /// (key, header) Request. [urllib]
+aiter /// (async_iterable)
+all /// (iterable)
+anext /// (async_iterator)\n(async_iterator, default)
+answer_challenge /// (connection, authkey) connection. [multiprocessing]
+any /// (iterable)
+append /// (x) sequence.
+apply /// (func[, args[, kwds]]) Pool. [multiprocessing.pool]
+apply_async /// (func[, args[, kwds[, callback[, error_callback]]]]) Pool. [multiprocessing.pool]
+as_integer_ratio /// () float. / int.
+as_posix /// () PurePath. [pathlib]
+as_uri /// () PurePath. [pathlib]
+ascii /// (object)
+astimezone /// (tz=None) datetime. [datetime]
+basename /// (path) path. [os]
+basicConfig /// (**kwargs) logging.
+bin /// (x)
+bit_count /// () int.
+bit_length /// () int.
+bool /// (x=False)
+breakpoint /// (*args, **kws)
+build_opener /// ([handler, ...]) request. [urllib]
+bytearray /// (source=b'')\n(source, encoding)\n(source, encoding, errors)
+bytes /// (source=b'')\n(source, encoding)\n(source, encoding, errors)
+callable /// (object)
+can_fetch /// (useragent, url) RobotFileParser. [urllib.robotparser]
+cancel /// () Timer. [threading]
+cancel_join_thread /// () Queue. [multiprocessing]
+capitalize /// () bytearray. / bytes. / str.
+captureWarnings /// (capture) logging.
+casefold /// () str.
+cast /// (format[, shape]) memoryview.
+center /// (width[, fillbyte]) bytearray. / bytes.\n(width[, fillchar]) str.
+chdir /// (path) os.
+chflags /// (path, flags, *, follow_symlinks=True) os.
+chmod /// (path, mode, *, dir_fd=None, follow_symlinks=True) os.\n(mode, *, follow_symlinks=True) Path. [pathlib]
+chown /// (path, uid, gid, *, dir_fd=None, follow_symlinks=True) os.\n(path, user=None, group=None, *, dir_fd=None, follow_symlinks=True) shutil.
+chr /// (i)
+chroot /// (path) os.
+clear /// () sequence. / set.\n() Event. [threading]
+close /// () coroutine. / IOBase. [io] / BaseHandler. [urllib]\n() Handler. / FileHandler. [logging]\n() MemoryHandler. / NTEventLogHandler. / SocketHandler. / SysLogHandler. [logging.handlers]\n() Process. / Queue. / SimpleQueue. [multiprocessing]\n() Connection. / Listener. [multiprocessing.connection]\n() Pool. [multiprocessing.pool]\n(fd) os.\n() scandir. [os]
+closerange /// (fd_low, fd_high) os.
+combine /// (date, time, tzinfo=self.tzinfo) datetime. [datetime]
+commonpath /// (paths) path. [os]
+commonprefix /// (list) path. [os]
+compile /// (source, filename, mode, flags=0, dont_inherit=False, optimize=-1)\n(pattern, flags=0) re.
+complex /// (real=0, imag=0)\n(string)
+confstr /// (name) os.
+connect /// () BaseManager. [multiprocessing.managers]
+copy /// () sequence. / set. / frozenset.\n(x) copy.\n(obj) sharedctypes. [multiprocessing]\n(src, dst, *, follow_symlinks=True) shutil.
+copy2 /// (src, dst, *, follow_symlinks=True) shutil.
+copy_file_range /// (src, dst, count, offset_src=None, offset_dst=None) os.
+copyfile /// (src, dst, *, follow_symlinks=True) shutil.
+copyfileobj /// (fsrc, fdst[, length]) shutil.
+copymode /// (src, dst, *, follow_symlinks=True) shutil.
+copystat /// (src, dst, *, follow_symlinks=True) shutil.
+copytree /// (src, dst, symlinks=False, ignore=None, copy_function=copy2, ignore_dangling_symlinks=False, dirs_exist_ok=False) shutil.
+count /// (x) sequence.\n(sub[, start[, end]]) bytearray. / bytes. / str.
+cpu_count /// () multiprocessing. / os.
+crawl_delay /// (useragent) RobotFileParser. [urllib.robotparser]
+createLock /// () Handler. / NullHandler. [logging]
+createSocket /// () SocketHandler. / SysLogHandler. [logging.handlers]
+critical /// (msg, *args, **kwargs) logging. / Logger. [logging]
+ctermid /// () os.
+ctime /// () date. / datetime. [datetime]
+current_process /// () multiprocessing.
+current_thread /// () threading.
+cwd /// () Path. [pathlib]
+data_open /// (req) DataHandler. [urllib]
+date /// (year, month, day) datetime.\n() datetime. [datetime]
+datetime /// (year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0) datetime.
+debug /// (msg, *args, **kwargs) logging. / Logger. [logging]
+decode /// (encoding='utf-8', errors='strict') bytearray. / bytes.\n(s) JSONDecoder. [json]
+deepcopy /// (x[, memo]) copy.
+default /// (o) JSONEncoder. [json]
+default_open /// (req) BaseHandler. [urllib]
+defaults /// () ConfigParser. [configparser]
+delattr /// (object, name)
+deliver_challenge /// (connection, authkey) connection. [multiprocessing]
+dequeue /// (block) QueueListener. [logging.handlers]
+detach /// () BufferedIOBase. / TextIOBase. [io]
+device_encoding /// (fd) os.
+dict /// (**kwargs)\n(mapping, **kwargs)\n(iterable, **kwargs)\n() SyncManager. [multiprocessing.managers]\n(mapping) SyncManager. [multiprocessing.managers]\n(sequence) SyncManager. [multiprocessing.managers]
+dictConfig /// (config) config. [logging]
+difference /// (*others) set. / frozenset.
+difference_update /// (*others) set.
+dir /// ()\n(object)
+dirname /// (path) path. [os]
+disable /// (level=CRITICAL) logging.
+discard /// (elem) set.
+disk_usage /// (path) shutil.
+divmod /// (a, b)
+doRollover /// () RotatingFileHandler. / TimedRotatingFileHandler. [logging.handlers]
+dst /// () datetime. / time. [datetime]\n(dt) tzinfo. / timezone. [datetime]
+dump /// (obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw) json.
+dumps /// (obj, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw) json.
+dup /// (fd) os.
+dup2 /// (fd, fd2, inheritable=True) os.
+emit /// (record) FileHandler. / Handler. / NullHandler. / StreamHandler. [logging]\n(record) {Buffering / HTTP / NTEventLog / Queue / RotatingFile / SMTP / SysLog / TimedRotatingFile / WatchedFile}Handler. [logging.handlers]\n() {Datagram / Socket}Handler. [logging.handlers]
+empty /// () Queue. / SimpleQueue. [multiprocessing]
+encode /// (encoding='utf-8', errors='strict') str.\n(o) JSONEncoder. [json]
+encodePriority /// (facility, priority) SysLogHandler. [logging.handlers]
+end /// ([group]) Match. [re]
+endswith /// (suffix[, start[, end]]) bytearray. / bytes. / str.
+enqueue /// (record) QueueHandler. [logging.handlers]
+enqueue_sentinel /// () QueueListener. [logging.handlers]
+enumerate /// (iterable, start=0)\n() threading.
+error /// (msg, *args, **kwargs) logging. / Logger. [logging]\n(msg, pattern=None, pos=None) re.\n(proto, *args) OpenerDirector. [urllib]
+escape /// (pattern) re.
+eval /// (expression, globals=None, locals=None)
+excepthook /// (args, /) threading.
+exception /// (msg, *args, **kwargs) logging. / Logger. [logging]
+exec /// (object, globals=None, locals=None, /, *, closure=None)
+execl /// (path, arg0, arg1, ...) os.
+execle /// (path, arg0, arg1, ..., env) os.
+execlp /// (file, arg0, arg1, ...) os.
+execlpe /// (file, arg0, arg1, ..., env) os.
+execv /// (path, args) os.
+execve /// (path, args, env) os.
+execvp /// (file, args) os.
+execvpe /// (file, args, env) os.
+exists /// (path) path. [os]\n() Path. [pathlib]
+expand /// (template) Match. [re]
+expandtabs /// (tabsize=8) bytearray. / bytes. / str.
+expanduser /// (path) path. [os]\n() Path. [pathlib]
+expandvars /// (path) path. [os]
+extend /// (t) sequence.
+fchdir /// (fd) os.
+fchmod /// (fd, mode) os.
+fchown /// (fd, uid, gid) os.
+fdatasync /// (fd) os.
+fdopen /// (fd, *args, **kwargs) os.
+fileConfig /// (fname, defaults=None, disable_existing_loggers=True) config. [logging]
+file_open /// (req) FileHandler. [urllib]
+fileno /// () IOBase. [io] / Connection. [multiprocessing.connection]
+filter /// filter(function, iterable)\nFilter(name='') logging.\nfilter(record) Logger. / Handler. / Filter. [logging]
+find /// (sub[, start[, end]]) bytearray. / bytes. / str.
+findCaller /// (stack_info=False, stacklevel=1) Logger. [logging]
+find_user_password /// (realm, authuri) HTTPPasswordMgr. / HTTPPasswordMgrWithPriorAuth. [urllib]
+findall /// (pattern, string, flags=0) re.\n(string[, pos[, endpos]]) Pattern. [re]
+finditer /// (pattern, string, flags=0) re.\n(string[, pos[, endpos]]) Pattern. [re]
+float /// (x=0.0)
+flush /// () IOBase. / BufferedWriter. [io]\n() Handler. / StreamHandler. [logging]\n() BufferingHandler. / MemoryHandler. [logging.handler]
+fork /// () os.
+forkpty /// () os.
+format /// (value, format_spec='')\n(*args, **kwargs) str.\n(record) Handler. / Formatter. [logging]
+formatException /// (exc_info) Formatter. [logging]
+formatStack /// (stack_info) Formatter. [logging]
+formatTime /// (record, datefmt=None) Formatter. [logging]
+format_map /// (mapping) str.
+fpathconf /// (fd, name) os.
+freeze_support /// () multiprocessing.
+from_bytes /// (bytes, byteorder='big', *, signed=False) int.
+from_uri /// (uri) Path. [pathlib]
+fromhex /// (string) bytearray. / bytes.\n(s) float.
+fromisocalendar /// (year, week, day) date. / datetime. [datetime]
+fromisoformat /// (date_string) date. / datetime. [datetime]\n(time_string) time. [datetime]
+fromkeys /// (iterable[, value]) dict.
+fromordinal /// (ordinal) date. / datetime. [datetime]
+fromtimestamp /// (timestamp) date. [datetime]\n(timestamp, tz=None) datetime. [datetime]
+fromutc /// (dt) tzinfo. / timezone. [datetime]
+frozenset /// (iterable=set())
+fsdecode /// (filename) os.
+fsencode /// (filename) os.
+fspath /// (path) os.
+fstat /// (fd) os.
+fstatvfs /// (fd) os.
+fsync /// (fd) os.
+ftp_open /// (req) FTPHandler. [urllib]
+ftruncate /// (fd, length) os.
+full /// () Queue. [multiprocessing]
+full_match /// (pattern, *, case_sensitive=None) PurePath. [pathlib]
+fullmatch /// (pattern, string, flags=0) re.\n(string[, pos[, endpos]]) Pattern. [re]
+fwalk /// (top='.', topdown=True, onerror=None, *, follow_symlinks=False, dir_fd=None) os.
+get /// (key[, default]) dict.\n(section, option, *, raw=False, vars=None[, fallback]) ConfigParser. [configparser]\n([block[, timeout]]) Queue. [multiprocessing]\n() SimpleQueue. [multiprocessing]\n([timeout]) AsyncResult. [multiprocessing.pool]
+getChild /// (suffix) Logger. [logging]
+getEffectiveLevel /// () Logger. [logging]
+getEventCategory /// (record) NTEventLogHandler. [logging.handlers]
+getEventType /// (record) NTEventLogHandler. [logging.handlers]
+getLevelName /// (level) logging.
+getLevelNamesMapping /// () logging.
+getLogRecordFactory /// () logging.
+getLogger /// (name=None) logging.
+getLoggerClass /// () logging.
+getMessage /// () LogRecord. [logging]
+getMessageID /// (record) NTEventLogHandler. [logging.handlers]
+getSubject /// (record) SMTPHandler. [logging.handlers]
+get_all_start_methods /// () multiprocessing.
+get_archive_formats /// () shutil.
+get_blocking /// (fd) os.
+get_context /// (method=None) multiprocessing.
+get_exec_path /// (env=None) os.
+get_full_url /// () Request. [urllib]
+get_handle_inheritable /// (handle) os.
+get_header /// (header_name, default=None) Request. [urllib]
+get_ident /// () threading.
+get_inheritable /// (fd) os.
+get_logger /// () multiprocessing.
+get_method /// () Request. [urllib]
+get_native_id /// () threading.
+get_nowait /// () Queue. [multiprocessing]
+get_server /// () BaseManager. [multiprocessing.managers]
+get_start_method /// (allow_none=False) multiprocessing.
+get_terminal_size /// (fd=STDOUT_FILENO) os.\n(fallback=(columns, lines)) shutil.
+get_unpack_formats /// () shutil.
+getatime /// (path) path. [os]
+getattr /// (object, name)\n(object, name, default)
+getboolean /// (section, option, *, raw=False, vars=None[, fallback]) ConfigParser. [configparser]
+getbuffer /// () BytesIO. [io]
+getctime /// (path) path. [os]
+getcwd /// () os.
+getcwdb /// () os.
+getegid /// () os.
+getenv /// (key, default=None) os.
+getenvb /// (key, default=None) os.
+geteuid /// () os.
+getfloat /// (section, option, *, raw=False, vars=None[, fallback]) ConfigParser. [configparser]
+getgid /// () os.
+getgrouplist /// (user, group) os.
+getgroups /// () os.
+getint /// (section, option, *, raw=False, vars=None[, fallback]) ConfigParser. [configparser]
+getloadavg /// () os.
+getlogin /// () os.
+getmtime /// (path) path. [os]
+getpgid /// (pid) os.
+getpgrp /// () os.
+getpid /// () os.
+getppid /// () os.
+getpriority /// (which, who) os.
+getprofile /// () threading.
+getproxies /// () request. [urllib]
+getrandom /// (size, flags=0) os.
+getresgid /// () os.
+getresuid /// () os.
+getsid /// (pid) os.
+getsize /// (path) path. [os]
+gettempdir /// () tempfile.
+gettempdirb /// () tempfile.
+gettempprefix /// () tempfile.
+gettempprefixb /// () tempfile.
+gettrace /// () threading.
+getuid /// () os.
+geturl /// () SplitResult. [urllib.parse]
+getvalue /// () BytesIO. / StringIO. [io]
+getxattr /// (path, attribute, *, follow_symlinks=True) os.
+glob /// (pattern, *, case_sensitive=None, recurse_symlinks=False) Path. [pathlib]
+globals /// ()
+group /// (*, follow_symlinks=True) Path. [pathlib]\n([group1, ...]) Match. [re]
+groupdict /// (default=None) Match. [re]
+groups /// (default=None) Match. [re]
+handle /// (record) Logger. / Handler. / NullHandler. [logging]\n(record) QueueListener. [logging.handlers]
+handleError /// (record) Handler. [logging]\n() SocketHandler. [logging.handlers]
+hardlink_to /// (target) Path. [pathlib]
+hasHandlers /// () Logger. [logging]
+has_header /// (header) Request. [urllib]
+has_option /// (section, option) ConfigParser. [configparser]
+has_section /// (section) ConfigParser. [configparser]
+hasattr /// (object, name)
+hash /// (object)
+header_items /// () Request. [urllib]
+help /// ()\n(request)
+hex /// (x)\n([sep[, bytes_per_sep]]) bytearray. / bytes. / memoryview.\n() float.
+home /// () Path. [pathlib]
+http_error_301 /// (req, fp, code, msg, hdrs) HTTPRedirectHandler. [urllib]
+http_error_302 /// (req, fp, code, msg, hdrs) HTTPRedirectHandler. [urllib]
+http_error_303 /// (req, fp, code, msg, hdrs) HTTPRedirectHandler. [urllib]
+http_error_307 /// (req, fp, code, msg, hdrs) HTTPRedirectHandler. [urllib]
+http_error_401 /// (req, fp, code, msg, hdrs) HTTPBasicAuthHandler. / HTTPDigestAuthHandler. [urllib]
+http_error_407 /// (req, fp, code, msg, hdrs) ProxyBasicAuthHandler. / ProxyDigestAuthHandler. [urllib]
+http_error_auth_reqed /// (authreq, host, req, headers) AbstractBasicAuthHandler. / AbstractDigestAuthHandler. [urllib]
+http_error_default /// (req, fp, code, msg, hdrs) BaseHandler. [urllib]
+http_open /// (req) HTTPHandler. [urllib]
+http_response /// (request, response) HTTPErrorProcessor. [urllib]
+https_open /// (req) HTTPSHandler. [urllib]
+https_response /// (request, response) HTTPErrorProcessor. [urllib]
+id /// (object)
+ignore_patterns /// (*patterns) shutil.
+imap /// (func, iterable[, chunksize]) Pool. [multiprocessing.pool]
+imap_unordered /// (func, iterable[, chunksize]) Pool. [multiprocessing.pool]
+index /// (x[, i[, j]]) sequence.\n(sub[, start[, end]]) bytearray. / bytes. / str.
+info /// (msg, *args, **kwargs) logging. / Logger. [logging]
+initgroups /// (username, gid) os.
+inode /// () DirEntry. [os]
+input /// ()\n(prompt)
+insert /// (i, x) sequence.
+install_opener /// (opener) request. [urllib]
+int /// (x=0)\n(x, base=10)
+intersection /// (*others) set. / frozenset.
+intersection_update /// (*others) set.
+isEnabledFor /// (level) Logger. [logging]
+is_absolute /// () PurePath. [pathlib]
+is_alive /// () Process. [multiprocessing]\n() Thread. [threading]
+is_authenticated /// (self, authuri) HTTPPasswordMgrWithPriorAuth. [urllib]
+is_block_device /// () Path. [pathlib]
+is_char_device /// () Path. [pathlib]
+is_dir /// (*, follow_symlinks=True) DirEntry. [os] / Path. [pathlib]
+is_fifo /// () Path. [pathlib]
+is_file /// (*, follow_symlinks=True) DirEntry. [os] / Path. [pathlib]
+is_integer /// () float. / int.
+is_junction /// () DirEntry. [os] / Path. [pathlib]
+is_mount /// () Path. [pathlib]
+is_relative_to /// (other) PurePath. [pathlib]
+is_set /// () Event. [threading]
+is_socket /// () Path. [pathlib]
+is_symlink /// () DirEntry. [os] / Path. [pathlib]
+isabs /// (path) path. [os]
+isalnum /// () bytearray. / bytes. / str.
+isalpha /// () bytearray. / bytes. / str.
+isascii /// () bytearray. / bytes. / str.
+isatty /// () IOBase. [io]\n(fd) os.
+isdecimal /// () str.
+isdigit /// () bytearray. / bytes. / str.
+isdir /// (path) path. [os]
+isdisjoint /// (other) set. / frozenset.
+isfile /// (path) path. [os]
+isidentifier /// () str.
+isinstance /// (object, classinfo)
+isjunction /// (path) path. [os]
+islink /// (path) path. [os]
+islower /// () bytearray. / bytes. / str.
+ismount /// (path) path. [os]
+isnumeric /// () str.
+isocalendar /// () date. / datetime. [datetime]
+isoformat /// () date. [datetime]\n(sep='T', timespec='auto') datetime. [datetime]\n(timespec='auto') time. [datetime]
+isoweekday /// () date. / datetime. [datetime]
+isprintable /// () str.
+isreserved /// (path) path. [os]
+isspace /// () bytearray. / bytes. / str.
+issubclass /// (class, classinfo)
+issubset /// (other) set. / frozenset.
+issuperset /// (other) set. / frozenset.
+istitle /// () bytearray. / bytes. / str.
+isupper /// () bytearray. / bytes. / str.
+items /// () dict.\n(raw=False, vars=None) ConfigParser. [configparser]\n(section, raw=False, vars=None) ConfigParser. [configparser]
+iter /// (object)\n(object, sentinel)
+iterdir /// () Path. [pathlib]
+iterencode /// (o) JSONEncoder. [json]
+join /// (iterable) bytearray. / bytes. / str.\n(path, *paths) path. [os]\n([timeout]) Process. [multiprocessing]\n() JoinableQueue. [multiprocessing]\n() Pool. [multiprocessing.pool]\n(timeout=None) threading.
+join_thread /// () Queue. [multiprocessing]
+joinpath /// (*other) PurePath. [pathlib]
+keys /// () dict.
+kill /// () Process. [multiprocessing]\n(pid, sig) os.
+killpg /// (pgid, sig) os.
+lchflags /// (path, flags) os.
+lchmod /// (path, mode) os.\n(mode) Path. [pathlib]
+lchown /// (path, uid, gid) os.
+len /// (s)
+lexists /// (path) path. [os]
+link /// (src, dst, *, src_dir_fd=None, dst_dir_fd=None, follow_symlinks=True) os.
+list /// ()\n(iterable)\n() SyncManager. [multiprocessing.managers]\n(sequence) SyncManager. [multiprocessing.managers]
+listdir /// (path='.') os.
+listdrives /// () os.
+listen /// (port=DEFAULT_LOGGING_CONFIG_PORT, verify=None) config. [logging]
+listmounts /// (volume) os.
+listvolumes /// () os.
+listxattr /// (path=None, *, follow_symlinks=True) os.
+ljust /// (width[, fillbyte]) bytearray. / bytes.\n(width[, fillchar]) str.
+load /// (fp, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw) json.
+loads /// (s, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw) json.
+locals /// ()
+locked /// () Lock. [threading]
+lockf /// (fd, cmd, len) os.
+log /// (level, msg, *args, **kwargs) logging. / Logger. [logging]
+log_to_stderr /// () multiprocessing.
+login_tty /// (fd, /) os.
+lower /// () bytearray. / bytes. / str.
+lseek /// (fd, pos, how) os.
+lstat /// (path, *, dir_fd=None) os.\n() Path. [pathlib]
+lstrip /// ([chars]) bytearray. / bytes. / str.
+main_thread /// () threading.
+major /// (device) os.
+makeLogRecord /// (attrdict) logging.
+makePickle /// (record) SocketHandler. [logging.handlers]
+makeRecord /// (name, level, fn, lno, msg, args, exc_info, func=None, extra=None, sinfo=None) Logger. [logging]
+makeSocket /// () DatagramHandler. / SocketHandler. [logging.handlers]
+make_archive /// (base_name, format[, root_dir[, base_dir[, verbose[, dry_run[, owner[, group[, logger]]]]]]]) shutil.
+makedev /// (major, minor) os.
+makedirs /// (name, mode=0o777, exist_ok=False) os.
+maketrans /// (from, to) bytearray. / bytes.\n(x[, y[, z]]) str.
+map /// (function, iterable, *iterables)\n(func, iterable[, chunksize]) Pool. [multiprocessing.pool]
+mapLogRecord /// (record) HTTPHandler. [logging.handlers]
+mapPriority /// (levelname) SysLogHandler. [logging.handlers]
+map_async /// (func, iterable[, chunksize[, callback[, error_callback]]]) Pool. [multiprocessing.pool]
+match /// (pattern, *, case_sensitive=None) PurePath. [pathlib]\n(pattern, string, flags=0) re.\n(string[, pos[, endpos]]) Pattern. [re]
+max /// (iterable, *, key=None)\n(iterable, *, default, key=None)\n(arg1, arg2, *args, key=None)
+memfd_create /// (name[, flags=os.MFD_CLOEXEC]) os.
+memoryview /// (object)
+min /// (iterable, *, key=None)\n(iterable, *, default, key=None)\n(arg1, arg2, *args, key=None)
+minor /// (device) os.
+mkdir /// (path, mode=0o777, *, dir_fd=None) os.\n(mode=0o777, parents=False, exist_ok=False) Path. [pathlib]
+mkdtemp /// (suffix=None, prefix=None, dir=None) tempfile.
+mkfifo /// (path, mode=0o666, *, dir_fd=None) os.
+mknod /// (path, mode=0o600, device=0, *, dir_fd=None) os.
+mkstemp /// (suffix=None, prefix=None, dir=None, text=False) tempfile.
+modified /// () RobotFileParser. [urllib.robotparser]
+move /// (src, dst, copy_function=copy2) shutil.
+mtime /// () RobotFileParser. [urllib.robotparser]
+next /// (iterator)\n(iterator, default)
+nice /// (increment) os.
+normcase /// (path) path. [os]
+normpath /// (path) path. [os]
+notify /// (n=1) Condition. [threading]
+notify_all /// () Condition. [threading]
+now /// (tz=None) datetime. [datetime]
+oct /// (x)
+open /// (file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)\n(path, flags, mode=0o777, *, dir_fd=None) os.\n(mode='r', buffering=-1, encoding=None, errors=None, newline=None) Path. [pathlib]\n(url, data=None[, timeout]) OpenerDirector. [urllib]
+open_code /// (path) io.
+openpty /// () os.
+options /// (section) ConfigParser. [configparser]
+optionxform /// (option) ConfigParser. [configparser]
+ord /// (c)
+owner /// (*, follow_symlinks=True) Path. [pathlib]
+parent_process /// () multiprocessing.
+parse /// (lines) RobotFileParser. [urllib.robotparser]
+parse_qs /// (qs, keep_blank_values=False, strict_parsing=False, encoding='utf-8', errors='replace', max_num_fields=None) parse. [urllib]
+parse_qsl /// (qs, keep_blank_values=False, strict_parsing=False, encoding='utf-8', errors='replace', max_num_fields=None) parse. [urllib]
+partition /// (sep) bytearray. / bytes. / str.
+pathconf /// (path, name) os.
+pathname2url /// (path) request. [urllib]
+peek /// ([size]) BufferedReader. [io]
+pidfd_open /// (pid, flags=0) os.
+pipe /// () os.
+pipe2 /// (flags) os.
+plock /// (op) os.
+poll /// ([timeout]) Connection. [multiprocessing.connection]
+pop /// ([i]) sequence.\n(key[, default]) dict.\n() set.
+popen /// (cmd, mode='r', buffering=-1) os.
+popitem /// () dict.
+posix_fadvise /// (fd, offset, len, advice) os.
+posix_fallocate /// (fd, offset, len) os.
+posix_spawn /// (path, argv, env, *, file_actions=None, setpgroup=None, resetids=False, setsid=False, setsigmask=(), setsigdef=(), scheduler=None) os.
+posix_spawnp /// (path, argv, env, *, file_actions=None, setpgroup=None, resetids=False, setsid=False, setsigmask=(), setsigdef=(), scheduler=None) os.
+pow /// (base, exp, mod=None)
+pread /// (fd, n, offset) os.
+preadv /// (fd, buffers, offset, flags=0) os.
+prepare /// (record) QueueHandler. / QueueListener. [logging.handlers]
+print /// (*objects, sep=' ', end='\ n', file=None, flush=False)
+process /// (msg, kwargs) LoggerAdapter. [logging]\n(group=None, target=None, name=None, args=(), kwargs={}, *, daemon=None) multiprocessing.
+process_cpu_count /// () os.
+property /// (fget=None, fset=None, fdel=None, doc=None)
+purge /// () re.
+put /// (obj[, block[, timeout]]) Queue. [multiprocessing]\n(item) SimpleQueue. [multiprocessing]
+put_nowait /// (obj) Queue. [multiprocessing]
+putenv /// (key, value) os.
+pwrite /// (fd, str, offset) os.
+pwritev /// (fd, buffers, offset, flags=0) os.
+qsize /// () Queue. [multiprocessing]
+quote /// (string, safe='/', encoding=None, errors=None) parse. [urllib]
+quote_from_bytes /// (bytes, safe='/') parse. [urllib]
+quote_plus /// (string, safe='', encoding=None, errors=None) parse. [urllib]
+range /// (stop)\n(start, stop, step=1)
+raw_decode /// (s) JSONDecoder. [json]
+read /// (size=-1) RawIOBase. / BufferedIOBase. / TextIOBase. [io]\n([size]) BufferedReader. [io]\n(filenames, encoding=None) ConfigParser. [configparser]\n(fd, n) os.\n() RobotFileParser. [urllib.robotparser]
+read1 /// ([size]) BufferedIOBase. / BytesIO. / BufferedReader. [io]
+read_bytes /// () Path. [pathlib]
+read_dict /// (dictionary, source='<dict>') ConfigParser. [configparser]
+read_file /// (f, source=None) ConfigParser. [configparser]
+read_string /// (string, source='<string>') ConfigParser. [configparser]
+read_text /// (encoding=None, errors=None) Path. [pathlib]
+readable /// () IOBase. [io]
+readall /// () RawIOBase. [io]
+readinto /// (b) RawIOBase. / BufferedIOBase. [io]
+readinto1 /// (b) BufferedIOBase. / BytesIO. [io]
+readline /// (size=-1) IOBase. / TextIOBase. [io]
+readlines /// (hint=-1) IOBase. [io]
+readlink /// (path, *, dir_fd=None) os.\n() Path. [pathlib]
+readv /// (fd, buffers) os.
+ready /// () AsyncResult. [multiprocessing.pool]
+realpath /// (path, *, strict=False) path. [os]
+reconfigure /// (*[, encoding][, errors][, newline][, line_buffering][, write_through]) TextIOWrapper. [io]
+recv /// () Connection. [multiprocessing.connection]
+recv_bytes /// ([maxlength]) Connection. [multiprocessing.connection]
+recv_bytes_into /// (buffer[, offset]) Connection. [multiprocessing.connection]
+redirect_request /// (req, fp, code, msg, hdrs, newurl) HTTPRedirectHandler. [urllib]
+register /// (typeid[, callable[, proxytype[, exposed[, method_to_typeid[, create_method]]]]]) BaseManager. [multiprocessing.managers]
+register_archive_format /// (name, function[, extra_args[, description]]) shutil.
+register_at_fork /// (*, before=None, after_in_parent=None, after_in_child=None) os.
+register_unpack_format /// (name, extensions, function[, extra_args[, description]]) shutil.
+relative_to /// (other, walk_up=False) PurePath. [pathlib]
+release /// () Handler. [logging] / memoryview.\n() Lock. / RLock. [multiprocessing]\n() Condition. / Lock. / RLock. [threading]\n(n=1) Semaphore. [threading]
+relpath /// (path, start=os.curdir) path. [os]
+remove /// (x) sequence.\n(elem) set.\n(path, *, dir_fd=None) os.
+removeFilter /// (filter) Logger. / Handler. [logging]
+removeHandler /// (hdlr) Logger. [logging]
+remove_header /// (header) Request. [urllib]
+remove_option /// (section, option) ConfigParser. [configparser]
+remove_section /// (section) ConfigParser. [configparser]
+removedirs /// (name) os.
+removeprefix /// (prefix, /) bytearray. / bytes. / str.
+removesuffix /// (suffix, /) bytearray. / bytes. / str.
+removexattr /// (path, attribute, *, follow_symlinks=True) os.
+rename /// (src, dst, *, src_dir_fd=None, dst_dir_fd=None) os.\n(target) Path. [pathlib]
+renames /// (old, new) os.
+reopenIfNeeded /// () WatchedFileHandler. [logging.handlers]
+replace /// (old, new[, count]) bytearray. / bytes.\n(obj, /, **changes) copy.\n(year, month, day) date. [datetime]\n(year, month, day, hour, minute, second, microsecond, tzinfo, * fold=0) datetime. [datetime]\n(hour, minute, second, microsecond, tzinfo, * fold=0) time. [datetime]\n(src, dst, *, src_dir_fd=None, dst_dir_fd=None) os.\n(target) Path. [pathlib]\n(old, new, count=-1) str.
+repr /// (object)
+request_rate /// (useragent) RobotFileParser. [urllib.robotparser]
+reset /// () Barrier. [threading]
+resolve /// (strict=False) Path. [pathlib]
+reverse /// () sequence.
+reversed /// (seq)
+rfind /// (sub[, start[, end]]) bytearray. / bytes. / str.
+rglob /// (pattern, *, case_sensitive=None, recurse_symlinks=False) Path. [pathlib]
+rindex /// (sub[, start[, end]]) bytearray. / bytes. / str.
+rjust /// (width[, fillbyte]) bytearray. / bytes.\n(width[, fillchar]) str.
+rmdir /// (path, *, dir_fd=None) os.\n() Path. [pathlib]
+rmtree /// (path, ignore_errors=False, *, onexc=None, dir_fd=None) shutil.
+rotate /// (source, dest) BaseRotatingHandler. [logging.handlers]
+rotation_filename /// (default_name) BaseRotatingHandler. [logging.handlers]
+round /// (number, ndigits=None)
+rpartition /// (sep) bytearray. / bytes. / str.
+rsplit /// (sep=None, maxsplit=-1) bytearray. / bytes. / str.
+rstrip /// ([chars]) bytearray. / bytes. / str.
+run /// () Process. [multiprocessing]\n() Thread. [threading]
+samefile /// (path1, path2) path. [os]\n(other_path) Path. [pathlib]
+sameopenfile /// (fp1, fp2) path. [os]
+samestat /// (stat1, stat2) path. [os]
+scandir /// (path='.') os.
+sched_get_priority_max /// (policy) os.
+sched_get_priority_min /// (policy) os.
+sched_getaffinity /// (pid) os.
+sched_getparam /// (pid) os.
+sched_getscheduler /// (pid) os.
+sched_param /// (sched_priority) os.
+sched_rr_get_interval /// (pid) os.
+sched_setaffinity /// (pid, mask) os.
+sched_setparam /// (pid, param) os.
+sched_setscheduler /// (pid, policy, param) os.
+sched_yield /// () os.
+search /// (pattern, string, flags=0) re.\n(string[, pos[, endpos]]) Pattern. [re]
+sections /// () ConfigParser. [configparser]
+seek /// (offset, whence=SEEK_SET) IOBase. / TextIOBase. [io]
+seekable /// () IOBase. [io]
+send /// (value) coroutine.\n(s) DatagramHandler. [logging.handlers]\n(packet) SocketHandler. [logging.handlers]\n(obj) Connection. [multiprocessing.connection]
+send_bytes /// (buffer[, offset[, size]]) Connection. [multiprocessing.connection]
+sendfile /// (out_fd, in_fd, offset, count) os.\n(out_fd, in_fd, offset, count, headers=(), trailers=(), flags=0) os.
+set /// ()\n(iterable)\n(section, option, value) ConfigParser. / RawConfigParser. [configparser]\n() Event. [threading]
+setFormatter /// (fmt) Handler. [logging]
+setLevel /// (level) Logger. / Handler. [logging]
+setLogRecordFactory /// (factory) logging.
+setLoggerClass /// (klass) logging.
+setMaxConns /// (m) CacheFTPHandler. [urllib]
+setStream /// (stream) StreamHandler. [logging]
+setTarget /// (target) MemoryHandler. [logging.handlers]
+setTimeout /// (t) CacheFTPHandler. [urllib]
+set_blocking /// (fd, blocking) os.
+set_executable /// () multiprocessing.
+set_handle_inheritable /// (handle, inheritable) os.
+set_inheritable /// (fd, inheritable) os.
+set_proxy /// (host, type) Request. [urllib]
+set_start_method /// (method) multiprocessing.
+set_url /// (url) RobotFileParser. [urllib.robotparser]
+setattr /// (object, name, value)
+setdefault /// (key[, default]) dict.
+setegid /// (egid) os.
+seteuid /// (euid) os.
+setgid /// (gid) os.
+setgroups /// (groups) os.
+setpgid /// (pid, pgrp) os.
+setpgrp /// () os.
+setpriority /// (which, who, priority) os.
+setprofile /// (func) threading.
+setprofile_all_threads /// (func) threading.
+setregid /// (rgid, egid) os.
+setresgid /// (rgid, egid, sgid) os.
+setresuid /// (ruid, euid, suid) os.
+setreuid /// (ruid, euid) os.
+setsid /// () os.
+settrace /// () threading.
+settrace_all_threads /// (func) threading.
+setuid /// (uid) os.
+setxattr /// (path, attribute, value, flags=0, *, follow_symlinks=True) os.
+shouldFlush /// (record) BufferingHandler. / MemoryHandler. [logging.handlers]
+shutdown /// () logging. / BaseManager. [multiprocessing.managers]
+site_maps /// () RobotFileParser. [urllib.robotparser]
+slice /// (stop)\n(start, stop, step=None)
+sort /// (*, key=None, reverse=False) list.
+sorted /// (iterable, /, *, key=None, reverse=False)
+span /// ([group]) Match. [re]
+spawnl /// (mode, path, ...) os.
+spawnle /// (mode, path, ..., env) os.
+spawnlp /// (mode, file, ...) os.
+spawnlpe /// (mode, file, ..., env) os.
+spawnv /// (mode, path, args) os.
+spawnve /// (mode, path, args, env) os.
+spawnvp /// (mode, file, args) os.
+spawnvpe /// (mode, file, args, env) os.
+split /// (sep=None, maxsplit=-1) bytearray. / bytes. / str.\n(path) path. [os]\n(pattern, string, maxsplit=0, flags=0) re.\n(string, maxsplit=0) Pattern. [re]
+splitdrive /// (path) path. [os]
+splitext /// (path) path. [os]
+splitlines /// (keepends=False) bytearray. / bytes. / str.
+splitroot /// (path) path. [os]
+stack_size /// ([size]) threading.
+starmap /// (func, iterable[, chunksize]) Pool. [multiprocessing.pool]
+starmap_async /// (func, iterable[, chunksize[, callback[, error_callback]]]) Pool. [multiprocessing.pool]
+start /// () QueueListener. [logging.handlers]\n() Process. [multiprocessing]\n([initializer[, initargs]]) BaseManager. [multiprocessing.managers]\n([group]) Match. [re]\n() Thread. [threading]
+startfile /// (path[, operation]) os.
+startswith /// (prefix[, start[, end]]) bytearray. / bytes. / str.
+stat /// (path, *, dir_fd=None, follow_symlinks=True) os.\n(*, follow_symlinks=True) DirEntry. [os] / Path. [pathlib]
+statvfs /// (path) os.
+stop /// () QueueListener. [logging.handlers]
+str /// (object='')\n(object=b'', encoding='utf-8', errors='strict')
+strerror /// (code) os.
+strftime /// (format) date. / datetime. / time. [datetime]
+strip /// ([chars]) bytearray. / bytes. / str.
+strptime /// (date_string, format) datetime. [datetime]
+sub /// (pattern, repl, string, count=0, flags=0) re.\n(repl, string, count=0) Pattern. [re]
+subn /// (pattern, repl, string, count=0, flags=0) re.\n(repl, string, count=0) Pattern. [re]
+successful /// () AsyncResult. [multiprocessing.pool]
+sum /// (iterable, /, start=0)
+super /// ()\n(type, object_or_type=None)
+swapcase /// () bytearray. / bytes. / str.
+symlink /// (src, dst, target_is_directory=False, *, dir_fd=None) os.
+symlink_to /// (target, target_is_directory=False) Path. [pathlib]
+symmetric_difference /// (other) set. / frozenset.
+symmetric_difference_update /// (other) set.
+sync /// () os.
+synchronized /// (obj[, lock]) sharedctypes. [multiprocessing]
+sysconf /// (name) os.
+system /// (command) os.
+task_done /// () JoinableQueue. [multiprocessing]
+tcgetpgrp /// (fd) os.
+tcsetpgrp /// (fd, pg) os.
+tell /// () IOBase. TextIOBase. [io]
+terminate /// () Process. [multiprocessing] / Pool. [multiprocessing.pool]
+throw /// (type[, value[, traceback]]) coroutine.
+time /// (hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0) datetime.\n() datetime. [datetime]
+timedelta /// (days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0) datetime.
+timerfd_create /// (clockid, /, *, flags=0) os.
+timerfd_gettime /// (fd, /) os.
+timerfd_gettime_ns /// (fd, /) os.
+timerfd_settime /// (fd, /, *, flags=flags, initial=0.0, interval=0.0) os.
+timerfd_settime_ns /// (fd, /, *, flags=0, initial=0, interval=0) os.
+times /// () os.
+timestamp /// () datetime. [datetime]
+timetuple /// () date. / datetime. [datetime]
+timetz /// () datetime. [datetime]
+timezone /// (offset, name=None) datetime.
+title /// () bytearray. / bytes. / str.
+to_bytes /// (length=1, byteorder='big', *, signed=False) int.
+tobytes /// (order='C') memoryview.
+today /// () date. / datetime. [datetime]
+tolist /// () memoryview.
+toordinal /// () date. / datetime. [datetime]
+toreadonly /// () memoryview.
+total_seconds /// () timedelta. [datetime]
+touch /// (mode=0o666, exist_ok=True) Path. [pathlib]
+translate /// (table, /, delete=b'') bytearray. / bytes.\n(table) str.
+truncate /// (size=None) IOBase. [io]\n(path, length) os.
+ttyname /// (fd) os.
+tuple /// ()\n(iterable)
+type /// (object)\n(name, bases, dict, **kwds)
+tzname /// () datetime. / time. [datetime]\n(dt) tzinfo. / timezone. [datetime]
+umask /// (mask) os.
+uname /// () os.
+union /// (*others) set. / frozenset.
+unknown_open /// (req) BaseHandler. [urllib]\n() UnknownHandler. [urllib]
+unlink /// (path, *, dir_fd=None) os.\n(missing_ok=False) Path. [pathlib]
+unpack_archive /// (filename[, extract_dir[, format]]) shutil.
+unquote /// (string, encoding='utf-8', errors='replace') parse. [urllib]
+unquote_plus /// (string, encoding='utf-8', errors='replace') parse. [urllib]
+unquote_to_bytes /// (string) parse. [urllib]
+unregister_archive_format /// (name) shutil.
+unregister_unpack_format /// (name) shutil.
+unsetenv /// (key) os.
+unwrap /// (url) parse. [urllib]
+update /// ([other]) dict.\n(*others) set.
+update_authenticated /// (self, uri, is_authenticated=False) HTTPPasswordMgrWithPriorAuth. [urllib]
+upper /// () bytearray. / bytes. / str.
+urandom /// (size, /) os.
+url2pathname /// (path) request. [urllib]
+urldefrag /// (url) parse. [urllib]
+urlencode /// (query, doseq=False, safe='', encoding=None, errors=None, quote_via=quote_plus) parse. [urllib]
+urljoin /// (base, url, allow_fragments=True) parse. [urllib]
+urlopen /// (url, data=None, [timeout, ]*, context=None) request. [urllib]
+urlparse /// (urlstring, scheme='', allow_fragments=True) parse. [urllib]
+urlsplit /// (urlstring, scheme='', allow_fragments=True) parse. [urllib]
+urlunparse /// (parts) parse. [urllib]
+urlunsplit /// (parts) parse. [urllib]
+utcfromtimestamp /// (timestamp) datetime. [datetime]
+utcnow /// () datetime. [datetime]
+utcoffset /// () datetime. / time. [datetime]\n(dt) tzinfo. / timezone. [datetime]
+utctimetuple /// () datetime. [datetime]
+utime /// (path, times=None, *, [ns, ]dir_fd=None, follow_symlinks=True) os.
+values /// () dict.
+vars /// ()\n(object)
+wait /// ([timeout]) AsyncResult. [multiprocessing.pool]\n(object_list, timeout=None) connection. [multiprocessing]\n() os.\n(timeout=None) Barrier. / Condition. / Event. [threading]
+wait3 /// (options) os.
+wait4 /// (pid, options) os.
+wait_for /// (predicate, timeout=None) Condition. [threading]
+waitid /// (idtype, id, options) os.
+waitpid /// (pid, options) os.
+waitstatus_to_exitcode /// (status) os.
+walk /// (top, topdown=True, onerror=None, followlinks=False) os.\n(top_down=True, on_error=None, follow_symlinks=False) Path. [pathlib]
+warning /// (msg, *args, **kwargs) logging. / Logger. [logging]
+weekday /// () date. / datetime. [datetime]
+which /// (cmd, mode=os.F_OK | os.X_OK, path=None) shutil.
+with_name /// (name) PurePath. [pathlib]
+with_segments /// (*pathsegments) PurePath. [pathlib]
+with_stem /// (stem) PurePath. [pathlib]
+with_suffix /// (suffix) PurePath. [pathlib]
+writable /// () IOBase. [io]
+write /// (b) RawIOBase. / BufferedIOBase. / BufferedWriter. [io]\n(s) TextIOBase. [io]\n(fileobject, space_around_delimiters=True) ConfigParser. [configparser]\n(fd, str) os.
+write_bytes /// (data) Path. [pathlib]
+write_text /// (data, encoding=None, errors=None) Path. [pathlib]
+writelines /// (lines) IOBase. [io]
+writev /// (fd, buffers) os.
+zfill /// (width) bytearray. / bytes. / str.
+zip /// (*iterables, strict=False)

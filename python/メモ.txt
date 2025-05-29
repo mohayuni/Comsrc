@@ -1,0 +1,27 @@
+・Windows11上で実行可能な環境こと
+・DB（MySql等）へのアクセス可能な
+・GUIが作成可能なこと
+
+Python 本体のインストール
+　https://www.python.jp/install/windows/install.html
+
+DBへのアクセスライブラリ（DBAPI）
+　PEP249（Python Database API Specification v2.0）で定義
+　https://qiita.com/overflowfl/items/5abdf49322942276fb2c
+　「5.4 Querying Data Using Connector/Python」
+　https://dev.mysql.com/doc/connector-python/en/connector-python-example-cursor-select.html
+　
+GUIライブラリ
+　Dear PyGui（LGPL）
+　PySimpleGUI（MITライセンス）
+　
+
+ゼロからのPython入門講座（python.jp）
+ https://www.python.jp/train/index.html
+ 
+ DBへのアクセス
+ SQLiteを使用する場合は、import sqlite3 を行えばOK
+ CSV読み込みもインポート
+ 
+ GUI　グリッド表示が可能？
+ 
